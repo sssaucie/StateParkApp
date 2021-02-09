@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+<!--    <color name="purple_200">#FFBB86FC</color>-->
+<!--    <color name="purple_500">#FF6200EE</color>-->
+<!--    <color name="purple_700">#FF3700B3</color>-->
+<!--    <color name="teal_200">#FF03DAC5</color>-->
+<!--    <color name="teal_700">#FF018786</color>-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="tyrian_purple">#035F0F40</color>
-    <color name="ruby_red">#039A031E</color>
-    <color name="dark_orange">#03FB8B24</color>
-    <color name="spanish_orange">#03E36414</color>
-    <color name="midnight_green_eagle_green">#030F4C5C</color>
+<!--    <color name="tyrian_purple">#5F0F40</color>-->
+<!--    <color name="ruby_red">#9A031E</color>-->
+<!--    <color name="dark_orange">#FB8B24</color>-->
+<!--    <color name="spanish_orange">#E36414</color>-->
+<!--    <color name="midnight_green_eagle_green">#0F4C5C</color>-->
+
+    <color name="dark_olive_green">#FF606C38</color>
+    <color name="faux_moss_green">#8D9E54</color>
+    <color name="kombu_green">#FF283618</color>
+    <color name="cornsilk">#FFFEFAE0</color>
+    <color name="fawn">#FFDDA15E</color>
+    <color name="liver_dogs">#FFBC6C25</color>
+
+<!--    colors generated from coolors.co-->
 
 </resources>
