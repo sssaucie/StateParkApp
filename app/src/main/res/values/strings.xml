@@ -1,3 +1,7 @@
 <resources>
+
     <string name="app_name">StateParkApp</string>
+    <string name="utah_dnr">UTAH DEPARTMENT OF NATURAL RESOURCES - STATE PARK</string>
+    <string name="button_reserve">RESERVE</string>
+
 </resources>
