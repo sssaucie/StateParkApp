@@ -7,7 +7,7 @@
 
     <style name="fontStyleLight" parent="@android:style/TextAppearance">
         <item name="android:fontFamily">@font/font_family</item>
-        <item name="android:textColor">@color/fawn</item>
+        <item name="android:textColor">@color/cornsilk</item>
     </style>
 
     <style name="fontStyleDark" parent="@android:style/TextAppearance">
