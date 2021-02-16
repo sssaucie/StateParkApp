@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="?attr/colorOnSecondary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_double"
+            android:contentDescription="@string/utah_dnr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/header_background" />
+
+        <TextView
+            android:id="@+id/utah_dnr"
+            style="@style/headerStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_half"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/utah_dnr"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002" />
+
+        <ImageButton
+            android:id="@+id/reserveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_double"
+            android:background="#00000000"
+            android:contentDescription="@string/button_reserve"
+            android:scaleType="fitXY"
+            android:scaleX="1"
+            app:layout_constraintBottom_toBottomOf="@+id/utahDNRLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_reserve_button" />
+
+        <TextView
+            android:id="@+id/reserveText"
+            style="@style/reserveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_reserve"
+            app:layout_constraintBottom_toBottomOf="@+id/reserveButton"
+            app:layout_constraintEnd_toEndOf="@+id/reserveButton"
+            app:layout_constraintStart_toStartOf="@+id/reserveButton"
+            app:layout_constraintTop_toTopOf="@+id/reserveButton" />
+
+        <ImageView
+            android:id="@+id/utahDNRLogo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/utah_dnr"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/splash" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
