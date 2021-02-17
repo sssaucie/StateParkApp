@@ -28,7 +28,7 @@
             app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/header_background" />
+            app:srcCompat="@drawable/ic_header_background" />
 
         <TextView
             android:id="@+id/utah_dnr"
@@ -50,8 +50,8 @@
 
         <ImageButton
             android:id="@+id/reserveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginEnd="@dimen/spacing_double"
             android:background="#00000000"
             android:contentDescription="@string/button_reserve"
@@ -59,7 +59,7 @@
             android:scaleX="1"
             app:layout_constraintBottom_toBottomOf="@+id/utahDNRLogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_reserve_button" />
+            app:srcCompat="@drawable/ic_button_reserve_blank" />
 
         <TextView
             android:id="@+id/reserveText"
@@ -67,6 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_reserve"
+            android:textSize="12sp"
+            android:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@+id/reserveButton"
             app:layout_constraintEnd_toEndOf="@+id/reserveButton"
             app:layout_constraintStart_toStartOf="@+id/reserveButton"
@@ -82,7 +84,7 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/splash" />
+            app:srcCompat="@drawable/fragment_splash" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

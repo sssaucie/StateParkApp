@@ -3,7 +3,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <nine-patch
-            android:src="@drawable/utah_dnr_logo"
+            android:src="@drawable/ic_logo_utah_dnr"
             android:dither="true" />
     </item>
 </layer-list>
