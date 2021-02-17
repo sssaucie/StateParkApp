@@ -1,17 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/button_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/clear_color"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_button_menu_rectangle" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    TODO: add OnClickListener to View-->
+<!--    TODO: add Entity data class for Parks (see sunflower app: Plant.kt)-->
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="clickListener"-->
+<!--            type="" />-->
+<!--        <variable-->
+<!--            name="park"-->
+<!--            type="" />-->
+<!--    </data>-->
+
+<!--TODO: Decide if I need a MaskedCard Layout-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/button_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/clear_color"
+                android:clickable="true"
+                android:contentDescription="@string/button_state_park_name"
+                app:layout_constraintStart_toStartOf="@id/button_list"
+                app:layout_constraintTop_toTopOf="@id/button_list"
+                app:srcCompat="@drawable/ic_button_menu_rectangle" />
+
+            <TextView
+                android:id="@+id/park_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0sp"
+                android:autoSizeTextType="uniform"
+                android:paddingHorizontal="@dimen/spacing_half"
+                android:paddingVertical="@dimen/spacing_half"
+                android:textAlignment="center"
+                android:textAppearance="@style/fontStyleLight"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@+id/button_list"
+                app:layout_constraintEnd_toEndOf="@+id/button_list"
+                app:layout_constraintStart_toStartOf="@id/button_list"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Utah Field House of Natural History State Park Museum" />
+            <!--            TODO: add android:text="" to TextView after creating parks.name binding-->
+            <!--            TODO: figure out how to expand the button to the largest text size of -->
+            <!--             the longest state park name-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
