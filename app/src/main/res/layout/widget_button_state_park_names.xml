@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/clear_color"
                 android:clickable="true"
-                android:contentDescription="@string/button_state_park_name"
+                android:contentDescription="@string/button_menu_state_park_name"
                 app:layout_constraintStart_toStartOf="@id/button_list"
                 app:layout_constraintTop_toTopOf="@id/button_list"
                 app:srcCompat="@drawable/ic_button_menu_rectangle" />

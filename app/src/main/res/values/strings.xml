@@ -3,12 +3,11 @@
     <string name="app_name">StateParkApp</string>
     <string name="utah_dnr">UTAH DEPARTMENT OF NATURAL RESOURCES - STATE PARKS</string>
     <string name="button_reserve">RESERVE</string>
-    <string name="button_state_park_name">State Park Name</string>
-    <string name="button_parks">Parks</string>
-    <string name="button_activities">Activities</string>
-    <string name="button_resources">Resources</string>
-    <string name="button_programs">Programs</string>
-    <string name="button_pay">Pay</string>
-    <string name="button_home_menu_description">Select from these options to get more information</string>
+    <string name="button_menu_state_park_name">State Park Name</string>
+    <string name="button_home_screen_parks">Parks</string>
+    <string name="button_home_screen_activities">Activities</string>
+    <string name="button_home_screen_resources">Resources</string>
+    <string name="button_home_screen_programs">Programs</string>
+    <string name="button_home_screen_pay">Pay</string>
 
 </resources>
