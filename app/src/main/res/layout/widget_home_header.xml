@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/headerBackground"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/spacing_normal"
@@ -42,8 +42,8 @@
             android:layout_marginBottom="@dimen/spacing_normal"
             android:lineSpacingExtra="4sp"
             android:text="@string/utah_dnr"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
+            app:layout_constraintEnd_toEndOf="@+id/headerBackground"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
             app:layout_constraintTop_toTopOf="parent"
@@ -54,7 +54,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="@dimen/spacing_double"
-            android:background="#00000000"
+            android:background="@color/clear_color"
+            android:clickable="true"
             android:contentDescription="@string/button_reserve"
             android:scaleType="fitXY"
             android:scaleX="1"
@@ -85,7 +86,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/utah_dnr"
             android:scaleType="fitXY"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/headerBackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/fragment_splash" />
