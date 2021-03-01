@@ -10,6 +10,7 @@
         android:id="@+id/home_menu_button_navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_half"
         android:backgroundTint="@color/clear_color"
         android:clickable="true"
         android:contentDescription="@string/button_home_menu_description"
@@ -18,17 +19,25 @@
         android:scaleType="fitXY"
         android:scaleX="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeMenuButtonId"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
-    <TextView
-        android:id="@+id/home_menu_button_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_parks"
-        android:theme="@style/fontStyleDark"
+    <ImageView
+        android:id="@+id/buttonHomeScreenMenuIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/home_menu_button_navigation"
         app:layout_constraintEnd_toEndOf="@+id/home_menu_button_navigation"
         app:layout_constraintStart_toStartOf="@+id/home_menu_button_navigation"
         app:layout_constraintTop_toTopOf="@+id/home_menu_button_navigation" />
+
+    <TextView
+        android:id="@+id/homeMenuButtonId"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/home_menu_button_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

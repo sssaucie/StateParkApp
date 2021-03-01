@@ -9,5 +9,6 @@
     <string name="button_home_screen_resources">Resources</string>
     <string name="button_home_screen_programs">Programs</string>
     <string name="button_home_screen_pay">Pay</string>
+    <string name="button_home_menu_description">Select from these options to learn more</string>
 
 </resources>
