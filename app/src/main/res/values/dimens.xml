@@ -4,4 +4,5 @@
     <dimen name="spacing_half">5dp</dimen>
     <dimen name="spacing_double">20dp</dimen>
     <dimen name="spacing_none">0dp</dimen>
+    <dimen name="icon_size">50dp</dimen>
 </resources>

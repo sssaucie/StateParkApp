@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_olive_green</item>
         <item name="colorPrimaryVariant">@color/kombu_green</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/cornsilk</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/fawn</item>
         <item name="colorSecondaryVariant">@color/midnight_green_eagle_green</item>

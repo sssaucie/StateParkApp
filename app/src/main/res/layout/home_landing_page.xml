@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnSecondary"
+    tools:context=".MainActivity">
+    <!--    Need the encapsulation layout for the background banner-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/headerBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_double"
+            android:contentDescription="@string/utah_dnr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_header_background" />
+
+        <TextView
+            android:id="@+id/utah_dnr"
+            style="@style/headerStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_half"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/utah_dnr"
+            app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
+            app:layout_constraintEnd_toEndOf="@+id/headerBackground"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/utahDNRLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002" />
+
+        <ImageButton
+            android:id="@+id/reserveButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="@dimen/spacing_double"
+            android:background="@color/clear_color"
+            android:clickable="true"
+            android:contentDescription="@string/button_reserve"
+            android:scaleType="fitXY"
+            android:scaleX="1"
+            app:layout_constraintBottom_toBottomOf="@+id/utahDNRLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_button_reserve_blank" />
+
+        <!--        TODO: Add OnClickListener for reserveButton-->
+        <!--        TODO: Find out if I need to make "RESERVE" text clickable-->
+
+        <TextView
+            android:id="@+id/reserveText"
+            style="@style/reserveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:text="@string/button_reserve"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/reserveButton"
+            app:layout_constraintEnd_toEndOf="@+id/reserveButton"
+            app:layout_constraintStart_toStartOf="@+id/reserveButton"
+            app:layout_constraintTop_toTopOf="@+id/reserveButton" />
+
+        <ImageView
+            android:id="@+id/utahDNRLogo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/utah_dnr"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/headerBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/fragment_splash" />
+        <!--        TODO: add OnClickListener for utahDNRLogo that takes the user to the URL-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/parksTextHeader"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home_screen_parks"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeParks"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeParks"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeParks"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/buttonHomeParks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_half"
+        android:backgroundTint="@color/clear_color"
+        android:clickable="true"
+        android:contentDescription="@string/button_home_menu_description"
+        android:padding="@dimen/spacing_none"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHomeActivities"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
+
+    <ImageView
+        android:id="@+id/iconParksButton"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeParks"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeParks"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeParks"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomeParks"
+        app:srcCompat="@drawable/ic_image_location_pin" />
+
+    <TextView
+        android:id="@+id/activitiesTextHeader"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home_screen_activities"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeActivities"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeActivities"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeActivities"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/buttonHomeActivities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/clear_color"
+        android:clickable="true"
+        android:contentDescription="@string/button_home_menu_description"
+        android:padding="@dimen/spacing_none"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHomeResources"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHomeParks"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
+
+    <ImageView
+        android:id="@+id/iconActivitiesButton"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeActivities"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeActivities"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeActivities"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomeActivities"
+        app:srcCompat="@drawable/ic_image_camping_tent" />
+
+    <TextView
+        android:id="@+id/resourcesTextHeader"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home_screen_resources"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomeResources"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeResources"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeResources"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/buttonHomeResources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/clear_color"
+        android:clickable="true"
+        android:contentDescription="@string/button_home_menu_description"
+        android:padding="@dimen/spacing_none"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHomePrograms"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHomeActivities"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
+
+    <ImageView
+        android:id="@+id/iconResourcesButton"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomeResources"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeResources"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeResources"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomeResources"
+        app:srcCompat="@drawable/ic_image_pine_tree" />
+
+    <TextView
+        android:id="@+id/programsTextHeader"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home_screen_programs"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomePrograms"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomePrograms"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomePrograms"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/buttonHomePrograms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/clear_color"
+        android:clickable="true"
+        android:contentDescription="@string/button_home_menu_description"
+        android:padding="@dimen/spacing_none"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHomePay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHomeResources"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
+
+    <ImageView
+        android:id="@+id/iconProgramsButton"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomePrograms"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomePrograms"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomePrograms"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomePrograms"
+        app:srcCompat="@drawable/ic_image_atv" />
+
+    <TextView
+        android:id="@+id/payTextHeader"
+        style="@style/fontStyleLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_home_screen_pay"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHomePay"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomePay"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomePay"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/buttonHomePay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_half"
+        android:backgroundTint="@color/clear_color"
+        android:clickable="true"
+        android:contentDescription="@string/button_home_menu_description"
+        android:padding="@dimen/spacing_none"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHomePrograms"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
+
+    <ImageView
+        android:id="@+id/iconPayButton"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonHomePay"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomePay"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomePay"
+        app:layout_constraintTop_toTopOf="@+id/buttonHomePay"
+        app:srcCompat="@drawable/ic_image_dollar_sign" />
+
+    <ImageView
+        android:id="@+id/imageHomeBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/spacing_none"
+        android:layout_marginTop="@dimen/spacing_half"
+        android:layout_marginEnd="@dimen/spacing_none"
+        android:layout_marginBottom="@dimen/spacing_none"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconArrowSelected"
+        app:srcCompat="@drawable/picture_home_screen_stars_desert" />
+
+    <ImageView
+        android:id="@+id/iconArrowSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_half"
+        app:layout_constraintBottom_toTopOf="@+id/imageHomeBackground"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeParks"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeParks"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomeParks"
+        app:srcCompat="@drawable/ic_image_arrow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
