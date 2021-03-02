@@ -21,6 +21,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.stateparkapp.database.StateParks
 
 /**
  * Defines methods for using the SleepNight class with Room.
@@ -29,7 +30,7 @@ import androidx.room.Update
 interface StateParksDao {
 
     @Insert
-    suspend fun insert(night: SleepNight)
+    suspend fun insert(parks: StateParks)
 
     /**
      * When updating a row with a value already set in a column,
@@ -38,22 +39,22 @@ interface StateParksDao {
      * @param night new value to write
      */
     @Update
-    suspend fun update(night: SleepNight)
+    suspend fun update(parks: StateParks)
 
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
      *
      * @param key startTimeMilli to match
      */
-    @Query("SELECT * from daily_sleep_quality_table WHERE nightId = :key")
-    suspend fun get(key: Long): SleepNight?
+    @Query("SELECT * from state_parks_database WHERE name = :key")
+    suspend fun get(key: Long): StateParks?
 
     /**
      * Deletes all values from the table.
      *
      * This does not delete the table, only its contents.
      */
-    @Query("DELETE FROM daily_sleep_quality_table")
+    @Query("DELETE FROM state_parks_database")
     suspend fun clear()
 
     /**
@@ -61,19 +62,19 @@ interface StateParksDao {
      *
      * sorted by start time in descending order.
      */
-    @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC")
-    fun getAllNights(): LiveData<List<SleepNight>>
+    @Query("SELECT * FROM state_parks_database ORDER BY parksId DESC")
+    fun getAllNights(): LiveData<List<StateParks>>
 
     /**
      * Selects and returns the latest night.
      */
-    @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC LIMIT 1")
-    suspend fun getTonight(): SleepNight?
+    @Query("SELECT * FROM state_parks_database ORDER BY parksId DESC LIMIT 1")
+    suspend fun getTonight(): StateParks?
 
     /**
      * Selects and returns the night with given nightId.
      */
-    @Query("SELECT * from daily_sleep_quality_table WHERE nightId = :key")
-    fun getNightWithId(key: Long): LiveData<SleepNight>
+    @Query("SELECT * from state_parks_database WHERE parksId = :key")
+    fun getParkWithId(key: Long): LiveData<StateParks>
 }
 

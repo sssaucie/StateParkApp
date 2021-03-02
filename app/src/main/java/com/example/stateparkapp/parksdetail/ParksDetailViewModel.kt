@@ -1,8 +1,15 @@
 package com.example.stateparkapp.parksdetail
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.android.trackmysleepquality.database.StateParksDao
+import com.example.stateparkapp.database.StateParks
+
 class ParksDetailViewModel(
-    private val sleepNightKey: Long = 0L,
-    dataSource: SleepDatabaseDao) : ViewModel() {
+    private val parksKey: Long = 0L,
+    dataSource: StateParksDao) : ViewModel() {
 
     /**
      * Hold a reference to SleepDatabase via its SleepDatabaseDao.
@@ -13,12 +20,12 @@ class ParksDetailViewModel(
     /**
      */
 
-    private val night = MediatorLiveData<SleepNight>()
+    private val parks = MediatorLiveData<StateParks>()
 
-    fun getNight() = night
+    fun getParks() = parks
 
     init {
-        night.addSource(database.getNightWithId(sleepNightKey), night::setValue)
+        parks.addSource(database.getParkWithId(parksKey), parks::setValue)
     }
 
     /**

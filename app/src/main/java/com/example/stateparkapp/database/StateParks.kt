@@ -1,16 +1,44 @@
 package com.example.stateparkapp.database
 
-@Entity(tableName = "daily_sleep_quality_table")
-data class SleepNight(
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "state_parks_database")
+data class StateParks(
     @PrimaryKey(autoGenerate = true)
-    var nightId: Long = 0L,
+    var parksId: Long = 0L,
 
-    @ColumnInfo(name = "start_time_milli")
-    val startTimeMilli: Long = System.currentTimeMillis(),
+    @ColumnInfo(name = "name")
+    val parkName: String,
 
-    @ColumnInfo(name = "end_time_milli")
-    var endTimeMilli: Long = startTimeMilli,
+    @ColumnInfo(name = "type")
+    var activityType: String,
 
-    @ColumnInfo(name = "quality_rating")
-    var sleepQuality: Int = -1
+    @ColumnInfo(name = "rating")
+    var rating: Int,
+
+    @ColumnInfo(name = "location")
+    var county: String,
+
+    @ColumnInfo(name = "size")
+    var acreage: String,
+
+    @ColumnInfo(name = "elevation")
+    var elevation: String,
+
+    @ColumnInfo(name = "year_established")
+    var yearEstablished: Int,
+
+    @ColumnInfo(name = "yearly_visitors")
+    var yearlyVisitors: Int,
+
+    @ColumnInfo(name = "short_description")
+    var parkDescription: String,
+
+    @ColumnInfo(name = "latitude")
+    var latitude: Long,
+
+    @ColumnInfo(name = "longitude")
+    var longitude: Long,
 )
