@@ -1,10 +1,10 @@
-package com.example.stateparkapp.database
+package com.example.stateparkapp.model.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "state_parks_database")
+@Entity(tableName = "state_parks")
 data class StateParks(
     @PrimaryKey(autoGenerate = true)
     var parksId: Long = 0L,

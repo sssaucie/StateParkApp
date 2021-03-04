@@ -1,11 +1,21 @@
-package com.example.stateparkapp.parksdetail
+package com.example.stateparkapp.view.parks_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AutoCompleteTextView
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.stateparkapp.R
+import com.example.stateparkapp.model.database.StateParksDatabase
+import com.example.stateparkapp.model.entity.StateParks
+import com.example.stateparkapp.view_model.ParkNamesViewModelFactory
 
 class ParksDetailFragment : Fragment() {
 
@@ -15,15 +25,15 @@ class ParksDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentSleepDetailBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_sleep_detail, container, false)
+        val binding: ParkNamesListAdapter = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_state_park, container, false)
 
         val application = requireNotNull(this.activity).application
         val arguments = SleepDetailFragmentArgs.fromBundle(arguments!!)
 
         // Create an instance of the ViewModel Factory.
-        val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
-        val viewModelFactory = SleepDetailViewModelFactory(arguments.sleepNightKey, dataSource)
+        val dataSource = StateParksDatabase.getInstance(application).stateParksDao
+        val viewModelFactory = ParkNamesViewModelFactory(arguments.sleepNightKey, dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
         val sleepDetailViewModel =
@@ -52,3 +62,5 @@ class ParksDetailFragment : Fragment() {
 //        return super.onCreateView(inflater, container, savedInstanceState)
     }
 }
+
+class ParkNamesFragment(val textView: TextView): RecyclerView.ViewHolder(textView)
