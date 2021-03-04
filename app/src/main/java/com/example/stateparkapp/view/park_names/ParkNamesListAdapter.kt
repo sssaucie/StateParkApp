@@ -1,4 +1,4 @@
-package com.example.stateparkapp.view.parks_detail
+package com.example.stateparkapp.view.park_names
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stateparkapp.R
 import com.example.stateparkapp.model.entity.StateParks
-import com.example.stateparkapp.view_model.ParkNamesViewModel
 
 abstract class ParkNamesListAdapter: RecyclerView.Adapter<ParkNamesFragment>() {
     var data = listOf<StateParks>()
