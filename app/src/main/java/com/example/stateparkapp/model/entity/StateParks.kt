@@ -10,7 +10,7 @@ data class StateParks(
     var parksId: Long = 0L,
 
     @ColumnInfo(name = "name")
-    val parkName: String,
+    var parkName: String,
 
     @ColumnInfo(name = "type")
     var activityType: String,

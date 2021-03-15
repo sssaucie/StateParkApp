@@ -17,10 +17,7 @@
 package com.example.stateparkapp.model.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.stateparkapp.model.entity.StateParks
 
 /**
@@ -29,8 +26,14 @@ import com.example.stateparkapp.model.entity.StateParks
 @Dao
 interface StateParksDao {
 
-    @Query("SELECT * from state_parks WHERE name = :key")
-    suspend fun get(key: Long): StateParks?
+    @Insert
+    fun stateParkName(parks: StateParks)
+
+    @Update
+    fun updateStateParkName(parks: StateParks)
+
+    @Query("SELECT * from state_parks ORDER BY parksId DESC")
+    suspend fun get(key: String): StateParks
 
     /**
      * Deletes all values from the table.
@@ -40,24 +43,24 @@ interface StateParksDao {
     @Query("DELETE FROM state_parks")
     suspend fun clear()
 
-    /**
-     * Selects and returns all rows in the table,
-     *
-     * sorted alphabetically in descending order.
-     */
-    @Query("SELECT * FROM state_parks ORDER BY parksId DESC")
-    fun getAllParks(): LiveData<List<StateParks>>
+//    /**
+//     * Selects and returns all rows in the table,
+//     *
+//     * sorted alphabetically in descending order.
+//     */
+//    @Query("SELECT * FROM state_parks ORDER BY parksId DESC")
+//    fun getAllParks(key: String): StateParks
 
-    /**
-     * Selects and returns the latest park.
-     */
-    @Query("SELECT * FROM state_parks ORDER BY parksId DESC LIMIT 1")
-    suspend fun getPark(): StateParks?
-
-    /**
-     * Selects and returns the park with given parkId.
-     */
-    @Query("SELECT * from state_parks WHERE parksId = :key")
-    fun getParkWithId(key: Long): LiveData<StateParks>
+//    /**
+//     * Selects and returns the latest park.
+//     */
+//    @Query("SELECT * FROM state_parks ORDER BY parksId DESC LIMIT 1")
+//    suspend fun getPark(): StateParks?
+//
+//    /**
+//     * Selects and returns the park with given parkId.
+//     */
+//    @Query("SELECT * from state_parks WHERE parksId = :key")
+//    fun getParkWithId(key: Long): LiveData<StateParks>
 }
 

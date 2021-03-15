@@ -2,6 +2,8 @@
 
     <string name="app_name">StateParkApp</string>
     <string name="utah_dnr">UTAH DEPARTMENT OF NATURAL RESOURCES - STATE PARKS</string>
+
+<!--    Buttons-->
     <string name="button_reserve">RESERVE</string>
     <string name="button_menu_state_park_name">State Park Name</string>
     <string name="button_home_screen_parks">Parks</string>
@@ -9,6 +11,26 @@
     <string name="button_home_screen_resources">Resources</string>
     <string name="button_home_screen_programs">Programs</string>
     <string name="button_home_screen_pay">Pay</string>
-    <string name="button_home_menu_description">Select from these options to learn more</string>
+
+<!--    Content Descriptions-->
+    <!--    Buttons-->
+    <string name="button_reserve_description">Reservations button</string>
+    <string name="button_parks_description">Parks menu</string>
+    <string name="button_activities_description">Activities menu</string>
+    <string name="button_resources_description">Resources menu</string>
+    <string name="button_programs_description">Programs menu</string>
+    <string name="button_pay_description">Pay button</string>
+    <string name="button_home_screen_facebook_description">Facebook button</string>
+    <string name="button_home_screen_twitter_description">Twitter button</string>
+    <string name="button_home_screen_youtube_description">YouTube button</string>
+
+    <!--    Images-->
+    <string name="image_home_screen_description">State park picture</string>
+    <string name="image_parks_screen_description">State park picture</string>
+    <string name="image_reserve_screen_description">State park picture</string>
+    <string name="image_activities_screen_description">State park picture</string>
+    <string name="image_resources_screen_description">State park picture</string>
+    <string name="image_programs_screen_description">State park picture</string>
+    <string name="image_pay_screen_description">State park picture</string>
 
 </resources>

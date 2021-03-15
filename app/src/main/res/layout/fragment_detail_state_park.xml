@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:textAlignment="center">
+
+    <ImageView
+        android:id="@+id/image_state_park"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_parks_screen_description"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/picture_home_screen_red_sand_cave" />
+
+    <TextView
+        android:id="@+id/name_state_park"
+        style="@style/headerStyle2"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:text="@string/button_menu_state_park_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_state_park" />
+
+    <TextView
+        android:id="@+id/detail_state_park"
+        style="@style/fontStyleLight"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/spacing_none"
+        android:layout_marginBottom="@dimen/spacing_double"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_state_park"
+        tools:text="Parks Description Goes Here" />
+</androidx.constraintlayout.widget.ConstraintLayout>
