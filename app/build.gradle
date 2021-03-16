@@ -61,8 +61,8 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModelVersion"
     kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
-    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // Coroutines

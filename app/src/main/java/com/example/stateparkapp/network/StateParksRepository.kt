@@ -1,19 +1,34 @@
 package com.example.stateparkapp.network
 
+import androidx.annotation.WorkerThread
 import com.example.stateparkapp.model.dao.StateParksDao
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.example.stateparkapp.model.entity.StateParks
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Repository module for handling data operations.
- *
- * Collecting from the Flows in [StateParksDao] is main-safe. Room supports Coroutines and moves the
- * query execution off of the main thread.
+ * Declare the DAO as a private property in the constructor, pass in the DAO instead of the whole
+ * database, because access to DAO only is necessary.
  */
 
-@Singleton
-class StateParksRepository @Inject constructor(private val stateParksDao: StateParksDao) {
+class StateParksRepository(private val stateParksDao: StateParksDao) {
 
-    suspend fun getAll() = stateParksDao.getAll()
+    /**
+     * Room executes all queries on a separate thread.
+     * Observed Flow will notify the observer when the data has changed.
+     */
 
+    val allParks: Flow<List<StateParks>> = stateParksDao.getAll()
+
+    /**
+     * By default, Room runs suspend queries off the main thread; therefore, we don't need to
+     * implement anything else to ensure we're not doing long running database work
+     * off the main thread.
+     */
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun insert(parks: StateParks) {
+        stateParksDao.insert(parks)
+    }
 }

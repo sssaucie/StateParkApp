@@ -16,33 +16,35 @@
 
 package com.example.stateparkapp.model.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.stateparkapp.model.entity.StateParks
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Defines methods for using the SleepNight class with Room.
  */
+
 @Dao
 interface StateParksDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(parks: StateParks)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(parks: List<StateParks>)
 
     @Update
     fun update(parks: StateParks)
 
-    @Query("SELECT * from state_parks ORDER BY parksId DESC")
-    suspend fun getAll(): LiveData<List<StateParks>>
+    @Query("SELECT * from state_parks ORDER BY name DESC")
+    fun getAll(): Flow<List<StateParks>>
 
     /**
      * Deletes all values from the table.
      *
      * This does not delete the table, only its contents.
      */
+
     @Query("DELETE FROM state_parks")
     suspend fun clear()
 
