@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stateparkapp.R
 import com.example.stateparkapp.model.database.StateParksDatabase
-import com.example.stateparkapp.view_model.ParkNamesViewModelFactory
+import com.example.stateparkapp.view_model.ParkNamesListViewModelFactory
 
 class ParksDetailFragment : Fragment() {
 
@@ -31,7 +31,7 @@ class ParksDetailFragment : Fragment() {
 
         // Create an instance of the ViewModel Factory.
         val dataSource = StateParksDatabase.getInstance(application).stateParksDao
-        val viewModelFactory = ParkNamesViewModelFactory(arguments.sleepNightKey, dataSource)
+        val viewModelFactory = ParkNamesListViewModelFactory(arguments.sleepNightKey, dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
         val sleepDetailViewModel =

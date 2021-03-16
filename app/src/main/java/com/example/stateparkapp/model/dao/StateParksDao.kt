@@ -27,13 +27,16 @@ import com.example.stateparkapp.model.entity.StateParks
 interface StateParksDao {
 
     @Insert
-    fun stateParkName(parks: StateParks)
+    fun insert(parks: StateParks)
+
+    @Insert
+    suspend fun insertAll(parks: List<StateParks>)
 
     @Update
-    fun updateStateParkName(parks: StateParks)
+    fun update(parks: StateParks)
 
     @Query("SELECT * from state_parks ORDER BY parksId DESC")
-    suspend fun get(key: String): StateParks
+    suspend fun getAll(): LiveData<List<StateParks>>
 
     /**
      * Deletes all values from the table.
