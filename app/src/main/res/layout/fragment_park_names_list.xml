@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--    TODO: add data for view model from parks list-->
-<!--        <data>-->
+        <data>
 
-<!--            <variable-->
-<!--                name="viewModel"-->
-<!--                type="com.example.stateparkapp.view_model.ParkNamesListViewModel" />-->
-<!--        </data>-->
+            <variable
+                name="viewModel"
+                type="com.example.stateparkapp.view_model.ParkNamesListViewModel" />
+        </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -51,6 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/chips"
             app:layout_constraintVertical_bias="0.6"
             app:spanCount="2"
+            app:listData="@{viewModel.parks}"
             tools:listitem="@layout/list_item_state_park_names" />
 
 
@@ -64,6 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:showOnlyWhenEmpty="@{viewModel.parks}"
             tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

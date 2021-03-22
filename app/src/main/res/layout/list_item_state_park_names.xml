@@ -5,18 +5,19 @@
 
 <!--    TODO: add OnClickListener to View-->
 <!--    TODO: add Entity data class for Parks (see sunflower app: Plant.kt)-->
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="clickListener"-->
-<!--            type="" />-->
-<!--        <variable-->
-<!--            name="park"-->
-<!--            type="" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="clickListener"
+            type="com.example.stateparkapp.utilities.ParkNamesListAdapter.ViewHolder" />
+        <variable
+            name="parkName"
+            type="com.example.stateparkapp.view_model.ParkNamesListViewModel" />
+    </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> clickListener}">
 
             <ImageButton
                 android:id="@+id/menu_rectangle"

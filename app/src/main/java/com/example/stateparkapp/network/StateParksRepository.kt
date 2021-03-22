@@ -18,7 +18,7 @@ class StateParksRepository(private val stateParksDao: StateParksDao) {
      * Observed Flow will notify the observer when the data has changed.
      */
 
-    val allParks: Flow<List<StateParks>> = stateParksDao.getAll()
+    val allParks: List<StateParks> = stateParksDao.getAll()
 
     /**
      * By default, Room runs suspend queries off the main thread; therefore, we don't need to

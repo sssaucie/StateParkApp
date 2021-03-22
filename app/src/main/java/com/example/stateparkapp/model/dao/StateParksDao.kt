@@ -37,7 +37,7 @@ interface StateParksDao {
     fun update(parks: StateParks)
 
     @Query("SELECT * from state_parks ORDER BY name DESC")
-    fun getAll(): Flow<List<StateParks>>
+    fun getAll(): List<StateParks>
 
     /**
      * Deletes all values from the table.

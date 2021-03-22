@@ -3,42 +3,43 @@ package com.example.stateparkapp.model.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "state_parks")
 data class StateParks(
     @PrimaryKey(autoGenerate = true)
-    var parksId: Long = 0L,
+    val parksId: Long = 0L,
 
     @ColumnInfo(name = "name")
-    var parkName: String,
+    val parkName: String,
 
     @ColumnInfo(name = "type")
-    var activityType: String,
+    val activityType: String,
 
     @ColumnInfo(name = "rating")
-    var rating: Int,
+    val rating: Int,
 
     @ColumnInfo(name = "location")
-    var county: String,
+    val county: String,
 
     @ColumnInfo(name = "size")
-    var acreage: String,
+    val acreage: String,
 
     @ColumnInfo(name = "elevation")
-    var elevation: String,
+    val elevation: String,
 
     @ColumnInfo(name = "year_established")
-    var yearEstablished: Int,
+    val yearEstablished: Int,
 
     @ColumnInfo(name = "yearly_visitors")
-    var yearlyVisitors: Int,
+    val yearlyVisitors: Int,
 
     @ColumnInfo(name = "short_description")
-    var parkDescription: String,
+    val parkDescription: String,
 
     @ColumnInfo(name = "latitude")
-    var latitude: Long,
+    val latitude: Long,
 
     @ColumnInfo(name = "longitude")
-    var longitude: Long,
-)
+    val longitude: Long,
+): Serializable

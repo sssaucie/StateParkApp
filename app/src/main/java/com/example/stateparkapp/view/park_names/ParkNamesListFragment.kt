@@ -1,4 +1,77 @@
 package com.example.stateparkapp.view.park_names
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.stateparkapp.R
+import com.example.stateparkapp.databinding.FragmentParkNamesListBinding
+import com.example.stateparkapp.model.database.StateParksDatabase
+import com.example.stateparkapp.utilities.ParkNamesListAdapter
+import com.example.stateparkapp.utilities.ParkNamesListListener
+import com.example.stateparkapp.view_model.ParkNamesListViewModel
+import com.example.stateparkapp.view_model.ParkNamesListViewModelFactory
+
+class ParkNamesListFragment : Fragment() {
+    private val viewModel : ParkNamesListViewModel by lazy {
+        ViewModelProvider(this).get(ParkNamesListViewModel::class.java)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        val binding = FragmentParkNamesListBinding.inflate(inflater)
+
+        binding.setLifecycleOwner(this)
+
+        binding.viewModel = viewModel
+
+        val adapter = ParkNamesListAdapter(ParkNamesListListener { parkId ->
+            val destination = R.layout.fragment_detail_state_park
+        })
+
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = StateParksDatabase.getInstance(application).stateParksDao()
+
+        val viewModelFactory = ParkNamesListViewModelFactory(dataSource, application)
+
+        val parkNamesListViewModel =
+            ViewModelProvider(
+                this, viewModelFactory).get(ParkNamesListViewModel::class.java)
+
+        binding.parkNamesListViewModel = parkNamesListViewModel
+
+        /**
+         * Grid layout
+         */
+
+        val manager = GridLayoutManager(activity, 2)
+        object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int) = when(position) {
+                0 -> 2
+                else -> 1
+            }
+        }
+
+        binding.stateParksList.layoutManager = manager
+
+        /**
+         * Add the view adapter and observe for new data
+         */
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+}
+
 //
 //import android.os.Bundle
 //import android.view.LayoutInflater
