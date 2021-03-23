@@ -4,17 +4,26 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.stateparkapp.model.database.SeedDatabaseWorker
 import com.example.stateparkapp.model.database.StateParksDatabase
 import com.example.stateparkapp.model.entity.Dummy
 import com.example.stateparkapp.utilities.FIRST_RUN_KEY
+import com.example.stateparkapp.utilities.ParkNamesListAdapter
 import com.example.stateparkapp.utilities.SHARED_PREFS_KEY
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_landing_page)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.state_parks_list)
+        val adapter = ParkNamesListAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         checkFirstRun()
     }

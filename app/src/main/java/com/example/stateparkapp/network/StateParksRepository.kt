@@ -16,7 +16,7 @@ class StateParksRepository(private val stateParksDao: StateParksDao) {
 
     /**
      * Room executes all queries on a separate thread.
-     * Observed Flow will notify the observer when the data has changed.
+     * Observed LiveData will notify the observer when the data has changed.
      */
 
     val allParks: LiveData<List<StateParks>> = stateParksDao.getAll()

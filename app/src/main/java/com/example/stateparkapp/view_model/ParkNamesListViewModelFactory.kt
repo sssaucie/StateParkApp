@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.stateparkapp.model.dao.StateParksDao
+import com.example.stateparkapp.network.StateParksRepository
 import java.lang.IllegalArgumentException
 
 /**
@@ -13,12 +14,11 @@ import java.lang.IllegalArgumentException
  */
 
 class ParkNamesListViewModelFactory(
-    private val dataSource : StateParksDao,
-    private val application : Application) : ViewModelProvider.Factory {
+    private val repository: StateParksRepository) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ParkNamesListViewModel::class.java)) {
-            return ParkNamesListViewModel(dataSource, application) as T
+            return ParkNamesListViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
