@@ -16,6 +16,7 @@
 
 package com.example.stateparkapp.model.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.stateparkapp.model.entity.StateParks
 import kotlinx.coroutines.flow.Flow
@@ -28,16 +29,16 @@ import kotlinx.coroutines.flow.Flow
 interface StateParksDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(parks: StateParks)
+    suspend fun insert(park: StateParks)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(parks: List<StateParks>)
 
     @Update
-    fun update(parks: StateParks)
+    suspend fun update(parks: StateParks)
 
-    @Query("SELECT * from state_parks ORDER BY name DESC")
-    fun getAll(): List<StateParks>
+    @Query("SELECT * from state_parks ORDER BY name ASC")
+    fun getAll(): LiveData<List<StateParks>>
 
     /**
      * Deletes all values from the table.

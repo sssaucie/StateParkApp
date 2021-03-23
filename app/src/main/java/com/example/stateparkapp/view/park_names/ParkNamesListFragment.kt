@@ -48,7 +48,8 @@ class ParkNamesListFragment : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory).get(ParkNamesListViewModel::class.java)
 
-        binding.parkNamesListViewModel = parkNamesListViewModel
+        // TODO: figure out why this is giving an error
+//        binding.parkNamesListViewModel = parkNamesListViewModel
 
         /**
          * Grid layout

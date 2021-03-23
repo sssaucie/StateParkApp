@@ -1,6 +1,5 @@
 package com.example.stateparkapp.model.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
@@ -10,36 +9,25 @@ data class StateParks(
     @PrimaryKey(autoGenerate = true)
     val parksId: Long = 0L,
 
-    @ColumnInfo(name = "name")
-    val parkName: String,
+    val name: String,
 
-    @ColumnInfo(name = "type")
-    val activityType: String,
+    val type: String,
 
-    @ColumnInfo(name = "rating")
-    val rating: Int,
+    val rating: String,
 
-    @ColumnInfo(name = "location")
-    val county: String,
+    val location: String,
 
-    @ColumnInfo(name = "size")
-    val acreage: String,
+    val size: String,
 
-    @ColumnInfo(name = "elevation")
     val elevation: String,
 
-    @ColumnInfo(name = "year_established")
-    val yearEstablished: Int,
+    val year_established: Int,
 
-    @ColumnInfo(name = "yearly_visitors")
-    val yearlyVisitors: Int,
+    val yearly_visitors: String,
 
-    @ColumnInfo(name = "short_description")
-    val parkDescription: String,
+    val short_description: String,
 
-    @ColumnInfo(name = "latitude")
-    val latitude: Long,
+    val latitude: Double,
 
-    @ColumnInfo(name = "longitude")
-    val longitude: Long,
+    val longitude: Double
 ): Serializable

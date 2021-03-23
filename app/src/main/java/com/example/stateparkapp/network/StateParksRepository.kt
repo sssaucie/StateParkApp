@@ -1,6 +1,7 @@
 package com.example.stateparkapp.network
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import com.example.stateparkapp.model.dao.StateParksDao
 import com.example.stateparkapp.model.entity.StateParks
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +19,7 @@ class StateParksRepository(private val stateParksDao: StateParksDao) {
      * Observed Flow will notify the observer when the data has changed.
      */
 
-    val allParks: List<StateParks> = stateParksDao.getAll()
+    val allParks: LiveData<List<StateParks>> = stateParksDao.getAll()
 
     /**
      * By default, Room runs suspend queries off the main thread; therefore, we don't need to

@@ -31,12 +31,13 @@ class ParkNamesListAdapter(val clickListener : ParkNamesListListener) : ListAdap
      */
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is ViewHolder -> {
-                val parkItem = getItem(position) as DataItem.ParkItem
-                holder.bind(parkItem.parkName, clickListener)
-            }
-        }
+//        TODO figure out why this is giving an error
+//        when (holder) {
+//            is ViewHolder -> {
+//                val parkItem = getItem(position) as DataItem.ParkItem
+//                holder.bind(parkItem.parkName, clickListener)
+//            }
+//        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -77,8 +78,9 @@ class ParkNamesListAdapter(val clickListener : ParkNamesListListener) : ListAdap
     class ViewHolder private constructor(val binding: ListItemStateParkNamesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(listener: ParkNamesListListener, parkName: ParkNamesListAdapter) {
-            binding.getParkName() = parkName
-            binding.clickListener = listener
+            // TODO: figure out why this is giving an error
+//            binding.getParkName() = parkName
+//            binding.clickListener = listener
             binding.executePendingBindings()
         }
 
@@ -111,8 +113,8 @@ class ParkNamesListListener(val clickListener: (parkId: Long) -> Unit) {
  */
 
 sealed class DataItem {
-    data class ParkItem(val parkName: StateParks): DataItem() {
-        override val id: String = parkName.parkName
+    data class ParkItem(val park: StateParks): DataItem() {
+        override val id: String = park.name
     }
 
     object Header: DataItem() {

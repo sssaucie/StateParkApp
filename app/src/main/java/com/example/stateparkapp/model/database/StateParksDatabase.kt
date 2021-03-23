@@ -9,7 +9,9 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.example.stateparkapp.model.dao.DummyDao
 import com.example.stateparkapp.model.dao.StateParksDao
+import com.example.stateparkapp.model.entity.Dummy
 import com.example.stateparkapp.model.entity.StateParks
 import com.example.stateparkapp.utilities.DATABASE_NAME
 
@@ -17,11 +19,12 @@ import com.example.stateparkapp.utilities.DATABASE_NAME
  * The Room database for this app
  */
 
-@Database(entities = [StateParks::class], version = 1, exportSchema = false)
+@Database(entities = [StateParks::class, Dummy::class], version = 1, exportSchema = false)
 //@TypeConverters(Converters::class)
 abstract class StateParksDatabase : RoomDatabase() {
 
     abstract fun stateParksDao(): StateParksDao
+    abstract fun dummyDao(): DummyDao
 
     companion object {
 
