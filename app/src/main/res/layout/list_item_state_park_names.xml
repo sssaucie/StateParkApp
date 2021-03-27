@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    TODO: add OnClickListener to View-->
     <data>
         <variable
-            name="parkName"
-            type="com.example.stateparkapp.utilities.ParkNamesListAdapter" />
-<!--        <variable-->
-<!--            name="clickListener"-->
-<!--            type="com.example.stateparkapp.view_model.ParkNa" />-->
+            name="park"
+            type="com.example.stateparkapp.model.entity.StateParks" />
+        <variable
+            name="clickListener"
+            type="com.example.stateparkapp.utilities.ParkNamesListClickListener" />
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="clickListener">
 
             <ImageButton
                 android:id="@+id/menu_rectangle"
@@ -42,7 +42,6 @@
                 android:paddingEnd="@dimen/spacing_half"
                 android:paddingBottom="@dimen/spacing_normal"
                 android:paddingTop="@dimen/spacing_half"
-                android:text="@{parkName.allParks}"
                 android:textAlignment="center"
                 android:textAppearance="@style/fontStyleLight"
                 app:layout_constrainedWidth="true"
@@ -50,10 +49,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/menu_rectangle"
                 app:layout_constraintStart_toStartOf="@id/menu_rectangle"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Utah Field House of Natural History Museum" />
-            <!--            TODO: add android:text="" to TextView after creating parks.name binding-->
-            <!--            TODO: figure out how to expand the button to the largest text size of -->
-            <!--             the longest state park name-->
+                tools:text="Utah Field House of Natural History Museum"
+                app:name="@{park.name}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

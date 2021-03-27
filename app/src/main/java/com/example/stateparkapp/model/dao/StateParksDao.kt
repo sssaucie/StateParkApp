@@ -17,6 +17,7 @@
 package com.example.stateparkapp.model.dao
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.stateparkapp.model.entity.StateParks
 import kotlinx.coroutines.flow.Flow
@@ -38,7 +39,7 @@ interface StateParksDao {
     suspend fun update(parks: StateParks)
 
     @Query("SELECT * from state_parks ORDER BY name ASC")
-    fun getAll(): LiveData<List<StateParks>>
+    fun getAll(): List<StateParks>
 
     /**
      * Deletes all values from the table.

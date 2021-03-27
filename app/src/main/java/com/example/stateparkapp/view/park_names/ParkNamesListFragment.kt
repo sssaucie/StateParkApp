@@ -1,19 +1,19 @@
 package com.example.stateparkapp.view.park_names
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.stateparkapp.R
 import com.example.stateparkapp.databinding.FragmentParkNamesListBinding
 import com.example.stateparkapp.model.database.StateParksDatabase
 import com.example.stateparkapp.utilities.ParkNamesListAdapter
-import com.example.stateparkapp.utilities.ParkNamesListListener
+import com.example.stateparkapp.utilities.ParkNamesListClickListener
 import com.example.stateparkapp.view_model.ParkNamesListViewModel
 import com.example.stateparkapp.view_model.ParkNamesListViewModelFactory
 
@@ -28,15 +28,8 @@ class ParkNamesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentParkNamesListBinding.inflate(inflater)
-
-        binding.setLifecycleOwner(this)
-
-        binding.viewModel = viewModel
-
-        val adapter = ParkNamesListAdapter(ParkNamesListListener { parkId ->
-            val destination = R.layout.fragment_detail_state_park
-        })
+        val binding : FragmentParkNamesListBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_park_names_list, container, false)
 
         val application = requireNotNull(this.activity).application
 
@@ -48,14 +41,17 @@ class ParkNamesListFragment : Fragment() {
             ViewModelProvider(
                 this, viewModelFactory).get(ParkNamesListViewModel::class.java)
 
-        // TODO: figure out why this is giving an error
-//        binding.parkNamesListViewModel = parkNamesListViewModel
+        binding.viewModel = parkNamesListViewModel
+
+        binding.setLifecycleOwner(this)
+
+//        binding.viewModel = viewModel
 
         /**
          * Grid layout
          */
 
-        val manager = GridLayoutManager(activity, 2)
+        val manager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int) = when(position) {
                 0 -> 2
@@ -63,13 +59,19 @@ class ParkNamesListFragment : Fragment() {
             }
         }
 
+        val adapter = ParkNamesListAdapter(ParkNamesListClickListener { parkName ->
+            parkNamesListViewModel.onParkDetailClicked(parkName)
+        })
+
+        binding.stateParksList.adapter = adapter
+
         binding.stateParksList.layoutManager = manager
 
         /**
          * Add the view adapter and observe for new data
          */
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 }
 
