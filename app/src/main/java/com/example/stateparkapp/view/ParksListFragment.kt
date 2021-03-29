@@ -1,25 +1,27 @@
-package com.example.stateparkapp.view.park_names
+package com.example.stateparkapp.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.stateparkapp.R
 import com.example.stateparkapp.databinding.FragmentParkNamesListBinding
+import com.example.stateparkapp.databinding.FragmentParksListBinding
 import com.example.stateparkapp.model.database.StateParksDatabase
-import com.example.stateparkapp.utilities.ParkNamesListAdapter
-import com.example.stateparkapp.utilities.ParkNamesListClickListener
-import com.example.stateparkapp.view_model.ParkNamesListViewModel
-import com.example.stateparkapp.view_model.ParkNamesListViewModelFactory
+import com.example.stateparkapp.utilities.ParksListAdapter
+import com.example.stateparkapp.utilities.ParksListClickListener
+import com.example.stateparkapp.view_model.ParksListViewModel
+import com.example.stateparkapp.view_model.ParksListViewModelFactory
 
-class ParkNamesListFragment : Fragment() {
-    private val viewModel : ParkNamesListViewModel by lazy {
-        ViewModelProvider(this).get(ParkNamesListViewModel::class.java)
+class ParksListFragment : Fragment() {
+    private val viewModel : ParksListViewModel by lazy {
+        ViewModelProvider(this).get(ParksListViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -28,24 +30,31 @@ class ParkNamesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding : FragmentParkNamesListBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_park_names_list, container, false)
+        val binding : FragmentParksListBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_parks_list, container, false)
 
         val application = requireNotNull(this.activity).application
 
-        val dataSource = StateParksDatabase.getInstance(application).stateParksDao()
+        val dataSource = StateParksDatabase.getInstance(application).stateParksDao
 
-        val viewModelFactory = ParkNamesListViewModelFactory(dataSource, application)
+        val viewModelFactory = ParksListViewModelFactory(dataSource, application)
 
-        val parkNamesListViewModel =
+        val parksListViewModel =
             ViewModelProvider(
-                this, viewModelFactory).get(ParkNamesListViewModel::class.java)
+                this, viewModelFactory).get(ParksListViewModel::class.java)
 
-        binding.viewModel = parkNamesListViewModel
+        binding.viewModel = parksListViewModel
 
         binding.setLifecycleOwner(this)
 
-//        binding.viewModel = viewModel
+        parksListViewModel.navigateToStateParkDetail.observe(viewLifecycleOwner, Observer { park ->
+            park?.let {
+                this.findNavController().navigate(
+                    ParksListFragmentDirections
+                        .action_parksListFragment_to_parksDetailFragment(park))
+                parksListViewModel.onParkDetailNavigated()
+            }
+        })
 
         /**
          * Grid layout
@@ -59,8 +68,8 @@ class ParkNamesListFragment : Fragment() {
             }
         }
 
-        val adapter = ParkNamesListAdapter(ParkNamesListClickListener { parkName ->
-            parkNamesListViewModel.onParkDetailClicked(parkName)
+        val adapter = ParksListAdapter(ParksListClickListener { parkName ->
+            parksListViewModel.onParkDetailClicked(parkName)
         })
 
         binding.stateParksList.adapter = adapter
@@ -70,6 +79,12 @@ class ParkNamesListFragment : Fragment() {
         /**
          * Add the view adapter and observe for new data
          */
+
+        parksListViewModel.parks.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
 
         return binding.root
     }
@@ -89,7 +104,7 @@ class ParkNamesListFragment : Fragment() {
 //import androidx.recyclerview.widget.RecyclerView
 //import com.example.stateparkapp.R
 //import com.example.stateparkapp.model.database.StateParksDatabase
-//import com.example.stateparkapp.view_model.ParkNamesListViewModelFactory
+//import com.example.stateparkapp.view_model.ParksListViewModelFactory
 //
 //class ParksDetailFragment : Fragment() {
 //
@@ -99,7 +114,7 @@ class ParkNamesListFragment : Fragment() {
 //        savedInstanceState: Bundle?
 //    ): View? {
 //        // Get a reference to the binding object and inflate the fragment views.
-//        val binding: ParkNamesListAdapter = DataBindingUtil.inflate(
+//        val binding: ParksListAdapter = DataBindingUtil.inflate(
 //            inflater, R.layout.fragment_state_park, container, false)
 //
 //        val application = requireNotNull(this.activity).application
@@ -107,7 +122,7 @@ class ParkNamesListFragment : Fragment() {
 //
 //        // Create an instance of the ViewModel Factory.
 //        val dataSource = StateParksDatabase.getInstance(application).stateParksDao
-//        val viewModelFactory = ParkNamesListViewModelFactory(arguments.sleepNightKey, dataSource)
+//        val viewModelFactory = ParksListViewModelFactory(arguments.sleepNightKey, dataSource)
 //
 //        // Get a reference to the ViewModel associated with this fragment.
 //        val sleepDetailViewModel =

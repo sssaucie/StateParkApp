@@ -39,7 +39,7 @@ interface StateParksDao {
     suspend fun update(parks: StateParks)
 
     @Query("SELECT * from state_parks ORDER BY name ASC")
-    fun getAll(): List<StateParks>
+    fun getAllParkNames(): LiveData<List<StateParks>>
 
     /**
      * Deletes all values from the table.

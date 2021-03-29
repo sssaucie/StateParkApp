@@ -23,9 +23,21 @@ import com.example.stateparkapp.utilities.DATABASE_NAME
 //@TypeConverters(Converters::class)
 abstract class StateParksDatabase : RoomDatabase() {
 
+    /**
+     * Connects the database to the DAO.
+     */
+    abstract val stateParksDao: StateParksDao
+
     abstract fun stateParksDao(): StateParksDao
     abstract fun dummyDao(): DummyDao
 
+    /**
+     * Define a companion object. This allows us to add functions on the StateParksDatabase
+     * class.
+     *
+     * For example, clients can call 'StateParksDatabase.getInstance(context)' to instantiate
+     * a new StateParkDatabase.
+     */
     companion object {
 
         /**

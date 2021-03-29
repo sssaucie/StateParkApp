@@ -9,13 +9,13 @@
             type="com.example.stateparkapp.model.entity.StateParks" />
         <variable
             name="clickListener"
-            type="com.example.stateparkapp.utilities.ParkNamesListClickListener" />
+            type="com.example.stateparkapp.utilities.ParksListClickListener" />
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="clickListener">
+            android:onClick="@{() -> clickListener.onClick(park)}">
 
             <ImageButton
                 android:id="@+id/menu_rectangle"
@@ -39,9 +39,10 @@
                 android:layout_marginTop="@dimen/spacing_none"
                 android:autoSizeTextType="uniform"
                 android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_half"
                 android:paddingEnd="@dimen/spacing_half"
                 android:paddingBottom="@dimen/spacing_normal"
-                android:paddingTop="@dimen/spacing_half"
+                android:text="@{park.name}"
                 android:textAlignment="center"
                 android:textAppearance="@style/fontStyleLight"
                 app:layout_constrainedWidth="true"
@@ -49,8 +50,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/menu_rectangle"
                 app:layout_constraintStart_toStartOf="@id/menu_rectangle"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Utah Field House of Natural History Museum"
-                app:name="@{park.name}"/>
+                tools:text="Utah Field House of Natural History Museum" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

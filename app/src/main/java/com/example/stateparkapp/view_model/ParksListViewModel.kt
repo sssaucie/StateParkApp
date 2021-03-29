@@ -2,14 +2,12 @@ package com.example.stateparkapp.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import com.example.stateparkapp.model.dao.StateParksDao
 import com.example.stateparkapp.model.entity.StateParks
 import kotlinx.coroutines.*
 
-class ParkNamesListViewModel(val database: StateParksDao, application: Application) : AndroidViewModel(application) {
+class ParksListViewModel(val database: StateParksDao, application: Application) : AndroidViewModel(application) {
 
     /**
      * viewModelJob allows us to cancel all coroutines started by this ViewModel.
@@ -30,29 +28,7 @@ class ParkNamesListViewModel(val database: StateParksDao, application: Applicati
 
     private var parkName = MutableLiveData<StateParks>()
 
-    /**
-     * Variable that tells the Fragment to navigate to a specific [StateParkFragment]
-     *
-     * This is private because we don't want to expose setting this value to the Fragment.
-     */
-    private val _navigateToStatePark = MutableLiveData<StateParks>()
-
-    /**
-     * If this is non-null, immediately navigate to [StateParkFragment] and call [doneNavigating]
-     */
-    val navigateToStatePark: LiveData<StateParks>
-        get() = _navigateToStatePark
-
-    /**
-     * Call this immediately after navigating to [StateParkFragment]
-     *
-     * It will clear the navigation request, so if the user rotates their phone it won't
-     * navigate twice.
-     */
-    // TODO: ask Brad why this has an error?
-    fun doneNavigating() {
-        _navigateToStatePark.value = null
-    }
+    val parks = database.getAllParkNames()
 
     private val _navigateToStateParkDetail = MutableLiveData<String>()
     val navigateToStateParkDetail

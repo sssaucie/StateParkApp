@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.stateparkapp.view_model.ParkNamesListViewModel" />
+            type="com.example.stateparkapp.view_model.ParksListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

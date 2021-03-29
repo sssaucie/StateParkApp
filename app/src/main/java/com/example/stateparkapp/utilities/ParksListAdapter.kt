@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stateparkapp.databinding.ListItemStateParkNamesBinding
 import com.example.stateparkapp.model.entity.StateParks
 
-class ParkNamesListAdapter(val clickListener: ParkNamesListClickListener) :
-    ListAdapter<StateParks, ParkNamesListAdapter.ParkNamesListViewHolder>(ParkNamesListDiffCallback()) {
+class ParksListAdapter(val clickListener: ParksListClickListener) :
+    ListAdapter<StateParks, ParksListAdapter.ParksListViewHolder>(ParkNamesListDiffCallback()) {
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: ParkNamesListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ParksListViewHolder, position: Int) {
 
         /**
          * Get element from dataset at this position and replace the
@@ -27,10 +27,10 @@ class ParkNamesListAdapter(val clickListener: ParkNamesListClickListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ParkNamesListViewHolder {
+    ): ParksListViewHolder {
         // Create a new view, which defines the UI of the list item.
 
-        return ParkNamesListViewHolder.from(parent)
+        return ParksListViewHolder.from(parent)
     }
 
     /**
@@ -38,25 +38,25 @@ class ParkNamesListAdapter(val clickListener: ParkNamesListClickListener) :
      * (custom ViewHolder).
      */
 
-    class ParkNamesListViewHolder private constructor(val binding: ListItemStateParkNamesBinding)
+    class ParksListViewHolder private constructor(val binding: ListItemStateParkNamesBinding)
         : RecyclerView.ViewHolder(binding.root) {
-            fun bind(clickListener: ParkNamesListClickListener, item: StateParks) {
+            fun bind(clickListener: ParksListClickListener, item: StateParks) {
                 binding.park = item
                 binding.clickListener = clickListener
                 binding.executePendingBindings()
             }
 
         companion object {
-            fun from(parent: ViewGroup): ParkNamesListViewHolder {
+            fun from(parent: ViewGroup): ParksListViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemStateParkNamesBinding.inflate(
                     layoutInflater, parent, false)
-                return ParkNamesListViewHolder(binding)
+                return ParksListViewHolder(binding)
             }
         }
         }
 
-//    class ParkNamesListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+//    class ParksListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        val textView: TextView
 //
 //        init {
@@ -86,6 +86,6 @@ class ParkNamesListDiffCallback : DiffUtil.ItemCallback<StateParks>() {
     }
 }
 
-class ParkNamesListClickListener(val clickListener: (parkName: String) -> Unit) {
+class ParksListClickListener(val clickListener: (parkName: String) -> Unit) {
     fun onClick(name: StateParks) = clickListener(name.name)
 }

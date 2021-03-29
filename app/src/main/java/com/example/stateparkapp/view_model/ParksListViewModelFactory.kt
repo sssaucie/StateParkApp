@@ -12,13 +12,13 @@ import java.lang.IllegalArgumentException
  * Provides the StateParksDao and context to the ViewModel.
  */
 
-class ParkNamesListViewModelFactory(
+class ParksListViewModelFactory(
     private val dataSource: StateParksDao,
     private val application: Application) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ParkNamesListViewModel::class.java)) {
-            return ParkNamesListViewModel(dataSource, application) as T
+        if (modelClass.isAssignableFrom(ParksListViewModel::class.java)) {
+            return ParksListViewModel(dataSource, application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

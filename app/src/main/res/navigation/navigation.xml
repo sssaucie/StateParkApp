@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation">
+
+    <fragment
+        android:id="@+id/home_page_fragment"
+        android:name="com.example.stateparkapp.view.HomePageFragment"
+        android:label="HomePageFragment"
+        tools:layout="@layout/home_landing_page">
+        <action
+            android:id="@+id/action_homePageFragment_to_parksListFragment"
+            app:destination="@+id/parks_list_fragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/parks_list_fragment"
+        android:name="com.example.stateparkapp.view.ParksListFragment"
+        android:label="ParksListFragment"
+        tools:layout="@layout/fragment_parks_list">
+        <action
+            android:id="@+id/action_parksListFragment_to_parkDetailFragment"
+            app:destination="@+id/parkDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/park_detail_fragment"
+        android:name="com.example.stateparkapp.view.ParkDetailFragment"
+        android:label="ParkDetailFragment"
+        tools:layout="@layout/fragment_parks_detail">
+
+        <action
+            android:id="@+id/action_parkDetailFragment_to_homePageFragment"
+            app:destination="@id/home_page_fragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+</navigation>
