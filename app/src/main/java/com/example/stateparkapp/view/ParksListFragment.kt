@@ -34,7 +34,7 @@ class ParksListFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val dataSource = StateParksDatabase.getInstance(application).stateParksDao
+        val dataSource = StateParksDatabase.getInstance(application).stateParksDao()
 
         val viewModelFactory = ParksListViewModelFactory(dataSource, application)
 

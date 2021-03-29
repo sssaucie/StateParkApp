@@ -24,7 +24,6 @@ abstract class StateParksDatabase : RoomDatabase() {
     /**
      * Connects the database to the DAO.
      */
-    abstract val stateParksDao: StateParksDao
 
     abstract fun stateParksDao(): StateParksDao
     abstract fun dummyDao(): DummyDao

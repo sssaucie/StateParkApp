@@ -1,18 +1,32 @@
 package com.example.stateparkapp.view_model
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.stateparkapp.model.dao.StateParksDao
 import com.example.stateparkapp.model.entity.StateParks
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
-class HomePageViewModel {
+class HomePageViewModel(val database: StateParksDao, application: Application) : AndroidViewModel(application) {
 
-    private val _navigateToStatePark = MutableLiveData<StateParks>()
+    private var viewModelJob = Job()
+
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
+    private val _navigateToStateParkList = MutableLiveData<StateParks>()
 
     /**
      * If this is non-null, immediately navigate to [StateParkFragment] and call [doneNavigating]
      */
-    val navigateToStatePark: LiveData<StateParks>
-        get() = _navigateToStatePark
+    val navigateToStateParkList: LiveData<StateParks>
+        get() = _navigateToStateParkList
+
+    fun onParkButtonClicked() {
+        _navigateToStateParkList.value
+    }
 
     /**
      * Call this immediately after navigating to [StateParkFragment]
@@ -22,7 +36,7 @@ class HomePageViewModel {
      */
     // TODO: ask Brad why this has an error?
     fun doneNavigating() {
-        _navigateToStatePark.value = null
+        _navigateToStateParkList.value = null
 
     }
 }

@@ -22,9 +22,7 @@
         tools:layout="@layout/fragment_parks_list">
         <action
             android:id="@+id/action_parksListFragment_to_parkDetailFragment"
-            app:destination="@+id/parkDetailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_in_right"/>
+            app:destination="@id/park_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/park_detail_fragment"
