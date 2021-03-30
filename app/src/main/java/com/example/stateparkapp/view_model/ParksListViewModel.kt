@@ -27,24 +27,11 @@ class ParksListViewModel(val database: StateParksDao, application: Application) 
      */
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-  //  private var parks = MutableLiveData<List<StateParks>>()
-
     val parks = database.getAllParks()
 
     private val _navigateToStateParkDetail = MutableLiveData<Long?>()
     val navigateToStateParkDetail
         get() = _navigateToStateParkDetail
-
-    init {
-        if (parks.value != null)
-        {
-            Log.e("foo", "Printing park values")
-            for (park in parks.value!!)
-            {
-                Log.e("foo", park.name)
-            }
-        }
-    }
 
     fun onParkDetailClicked(id: Long) {
         _navigateToStateParkDetail.value = id

@@ -31,11 +31,17 @@
         android:id="@+id/park_detail_fragment"
         android:name="com.example.stateparkapp.view.ParkDetailFragment"
         android:label="ParkDetailFragment"
-        tools:layout="@layout/fragment_parks_detail">
+        tools:layout="@layout/fragment_park_detail">
 
         <action
             android:id="@+id/action_parkDetailFragment_to_homePageFragment"
             app:destination="@id/home_page_fragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left" />
+
+        <action
+            android:id="@+id/action_parkDetailFragment_to_parksListFragment"
+            app:destination="@id/parks_list_fragment"
             app:enterAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_left" />
     </fragment>
