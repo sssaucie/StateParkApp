@@ -18,7 +18,7 @@ import com.example.stateparkapp.utilities.DATABASE_NAME
  */
 
 @Database(entities = [StateParks::class, Dummy::class], version = 1, exportSchema = false)
-//@TypeConverters(Converters::class)
+
 abstract class StateParksDatabase : RoomDatabase() {
 
     /**

@@ -67,8 +67,8 @@ class ParksListFragment : Fragment() {
             }
         }
 
-        val adapter = ParksListAdapter(ParksListClickListener { parkName ->
-            parksListViewModel.onParkDetailClicked(parkName)
+        val adapter = ParksListAdapter(ParksListClickListener { id ->
+            parksListViewModel.onParkDetailClicked(id)
         })
 
         binding.stateParksList.adapter = adapter

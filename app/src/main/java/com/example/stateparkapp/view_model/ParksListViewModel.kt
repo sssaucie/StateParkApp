@@ -1,6 +1,7 @@
 package com.example.stateparkapp.view_model
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.stateparkapp.model.dao.StateParksDao
@@ -26,30 +27,31 @@ class ParksListViewModel(val database: StateParksDao, application: Application) 
      */
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var parkName = MutableLiveData<StateParks>()
+  //  private var parks = MutableLiveData<List<StateParks>>()
 
-    val parks = database.getAllParkNames()
+    val parks = database.getAllParks()
 
-    private val _navigateToStateParkDetail = MutableLiveData<String>()
+    private val _navigateToStateParkDetail = MutableLiveData<Long?>()
     val navigateToStateParkDetail
         get() = _navigateToStateParkDetail
 
-    fun onParkDetailClicked(id: String) {
+    init {
+        if (parks.value != null)
+        {
+            Log.e("foo", "Printing park values")
+            for (park in parks.value!!)
+            {
+                Log.e("foo", park.name)
+            }
+        }
+    }
+
+    fun onParkDetailClicked(id: Long) {
         _navigateToStateParkDetail.value = id
     }
 
     fun onParkDetailNavigated() {
         _navigateToStateParkDetail.value = null
-    }
-
-    init {
-        initializeParkList()
-    }
-
-    private fun initializeParkList() {
-        uiScope.launch {
-            parkName.value
-        }
     }
 
     private suspend fun clear() {
