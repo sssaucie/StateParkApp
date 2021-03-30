@@ -12,8 +12,8 @@ class HomePageViewModelFactory(
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ParksListViewModel::class.java)) {
-            return ParksListViewModel(dataSource, application) as T
+        if (modelClass.isAssignableFrom(HomePageViewModel::class.java)) {
+            return HomePageViewModel(dataSource, application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

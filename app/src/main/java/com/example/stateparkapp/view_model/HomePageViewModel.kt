@@ -16,16 +16,16 @@ class HomePageViewModel(val database: StateParksDao, application: Application) :
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _navigateToStateParkList = MutableLiveData<StateParks>()
+    private val _navigateToStateParkList = MutableLiveData<Boolean?>()
 
     /**
      * If this is non-null, immediately navigate to [StateParkFragment] and call [doneNavigating]
      */
-    val navigateToStateParkList: LiveData<StateParks>
+    val navigateToStateParkList: LiveData<Boolean?>
         get() = _navigateToStateParkList
 
     fun onParkButtonClicked() {
-        _navigateToStateParkList.value
+        _navigateToStateParkList.value = true
     }
 
     /**
@@ -37,6 +37,5 @@ class HomePageViewModel(val database: StateParksDao, application: Application) :
     // TODO: ask Brad why this has an error?
     fun doneNavigating() {
         _navigateToStateParkList.value = null
-
     }
 }

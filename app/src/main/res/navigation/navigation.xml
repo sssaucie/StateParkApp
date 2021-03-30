@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation">
+    android:id="@+id/navigation"
+    app:startDestination="@id/home_page_fragment">
 
     <fragment
         android:id="@+id/home_page_fragment"
@@ -13,8 +14,9 @@
             android:id="@+id/action_homePageFragment_to_parksListFragment"
             app:destination="@+id/parks_list_fragment"
             app:enterAnim="@anim/slide_in_left"
-            app:popEnterAnim="@anim/slide_in_right"/>
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
+
     <fragment
         android:id="@+id/parks_list_fragment"
         android:name="com.example.stateparkapp.view.ParksListFragment"
@@ -24,6 +26,7 @@
             android:id="@+id/action_parksListFragment_to_parkDetailFragment"
             app:destination="@id/park_detail_fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/park_detail_fragment"
         android:name="com.example.stateparkapp.view.ParkDetailFragment"
@@ -34,7 +37,7 @@
             android:id="@+id/action_parkDetailFragment_to_homePageFragment"
             app:destination="@id/home_page_fragment"
             app:enterAnim="@anim/slide_in_left"
-            app:popEnterAnim="@anim/slide_in_left"/>
+            app:popEnterAnim="@anim/slide_in_left" />
     </fragment>
 
 </navigation>

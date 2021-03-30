@@ -1,6 +1,7 @@
 package com.example.stateparkapp.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,15 +44,13 @@ class HomePageFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
-        homePageViewModel.navigateToStateParkList.observe(viewLifecycleOwner, Observer { list ->
-            list?.let {
+        homePageViewModel.navigateToStateParkList.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
                 this.findNavController().navigate(
-                    HomePageFragmentDirections
-                        .actionHomePageFragmentToParksListFragment())
-                homePageViewModel.onParkButtonClicked()
+                    HomePageFragmentDirections.actionHomePageFragmentToParksListFragment())
+                homePageViewModel.doneNavigating()
             }
         })
-
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 }
