@@ -74,6 +74,6 @@ class ParkNamesListDiffCallback : DiffUtil.ItemCallback<StateParks>() {
     }
 }
 
-class ParksListClickListener(val clickListener: (id: Long) -> Unit) {
-    fun onClick(park: StateParks) = clickListener(park.parksId)
+class ParksListClickListener(val clickListener: (park: StateParks) -> Unit) {
+    fun onClick(park: StateParks) = clickListener(park)
 }

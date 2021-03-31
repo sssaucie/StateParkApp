@@ -50,7 +50,7 @@ class ParksListFragment : Fragment() {
             park?.let {
                 this.findNavController().navigate(
                     ParksListFragmentDirections
-                        .actionParksListFragmentToParkDetailFragment())
+                        .actionParksListFragmentToParkDetailFragment(park))
                 parksListViewModel.onNavigated()
             }
         })

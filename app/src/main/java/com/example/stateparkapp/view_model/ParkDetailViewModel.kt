@@ -1,19 +1,26 @@
 package com.example.stateparkapp.view_model
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.stateparkapp.model.dao.StateParksDao
+import androidx.lifecycle.ViewModel
+import com.example.stateparkapp.model.entity.StateParks
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-class ParkDetailViewModel(val database: StateParksDao, application: Application) : AndroidViewModel(application) {
+class ParkDetailViewModel(park: StateParks) : ViewModel() {
 
-    private var viewModelJob = Job()
+    private val _selectedPark = MutableLiveData<StateParks>()
 
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    val selectedPark : LiveData<StateParks>
+            get() = _selectedPark
+
+    init {
+        _selectedPark.value = park
+    }
 
     private val _navigateToHomePage = MutableLiveData<Boolean?>()
 

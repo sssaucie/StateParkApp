@@ -24,7 +24,8 @@
         tools:layout="@layout/fragment_parks_list">
         <action
             android:id="@+id/action_parksListFragment_to_parkDetailFragment"
-            app:destination="@id/park_detail_fragment" />
+            app:destination="@id/park_detail_fragment"/>
+
         <action
             android:id="@+id/actionParksListFragment_to_homePageFragment"
             app:destination="@id/home_page_fragment"
@@ -51,6 +52,9 @@
             app:destination="@id/parks_list_fragment"
             app:enterAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_left" />
+        <argument
+            android:name="selectedPark"
+            app:argType="com.example.stateparkapp.model.entity.StateParks" />
     </fragment>
 
 </navigation>

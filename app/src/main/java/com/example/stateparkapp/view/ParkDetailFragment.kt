@@ -12,13 +12,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.stateparkapp.R
 import com.example.stateparkapp.databinding.FragmentParkDetailBinding
 import com.example.stateparkapp.model.database.StateParksDatabase
+import com.example.stateparkapp.model.entity.StateParks
 import com.example.stateparkapp.view_model.ParkDetailViewModel
 import com.example.stateparkapp.view_model.ParkDetailViewModelFactory
 
 class ParkDetailFragment : Fragment() {
-    private val viewModel: ParkDetailViewModel by lazy {
-        ViewModelProvider(this).get(ParkDetailViewModel::class.java)
-    }
+    private lateinit var selectedPark : StateParks
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,14 +25,12 @@ class ParkDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        selectedPark = ParkDetailFragmentArgs.fromBundle(requireArguments()).selectedPark
+
         val binding : FragmentParkDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_park_detail, container, false)
 
-        val application = requireNotNull(this.activity).application
-
-        val dataSource = StateParksDatabase.getInstance(application).stateParksDao()
-
-        val viewModelFactory = ParkDetailViewModelFactory(dataSource, application)
+        val viewModelFactory = ParkDetailViewModelFactory(selectedPark)
 
         val parkDetailViewModel =
             ViewModelProvider(

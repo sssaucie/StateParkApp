@@ -9,10 +9,6 @@
             name="viewModel"
             type="com.example.stateparkapp.view_model.ParkDetailViewModel" />
 
-        <variable
-            name="park"
-            type="com.example.stateparkapp.model.entity.StateParks" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,10 +45,10 @@
         <TextView
             android:id="@+id/name_state_park"
             style="@style/headerStyle2"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:gravity="center"
-            android:text="@{park.name}"
+            android:text="@{viewModel.selectedPark.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_state_park"
@@ -64,7 +60,7 @@
             android:layout_width="@dimen/spacing_none"
             android:layout_height="@dimen/spacing_none"
             android:layout_marginBottom="@dimen/spacing_double"
-            android:text="@{park.short_description}"
+            android:text="@{viewModel.selectedPark.short_description}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

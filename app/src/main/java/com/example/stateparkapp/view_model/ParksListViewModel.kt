@@ -30,12 +30,12 @@ class ParksListViewModel(val database: StateParksDao, application: Application) 
 
     val parks = database.getAllParks()
 
-    private val _navigateToStateParkDetail = MutableLiveData<Long?>()
+    private val _navigateToStateParkDetail = MutableLiveData<StateParks?>()
     val navigateToStateParkDetail
         get() = _navigateToStateParkDetail
 
-    fun onParkDetailClicked(id: Long) {
-        _navigateToStateParkDetail.value = id
+    fun onParkDetailClicked(park: StateParks) {
+        _navigateToStateParkDetail.value = park
     }
 
     fun onNavigated() {
