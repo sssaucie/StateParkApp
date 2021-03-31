@@ -51,7 +51,16 @@ class ParksListFragment : Fragment() {
                 this.findNavController().navigate(
                     ParksListFragmentDirections
                         .actionParksListFragmentToParkDetailFragment())
-                parksListViewModel.onParkDetailNavigated()
+                parksListViewModel.onNavigated()
+            }
+        })
+
+        parksListViewModel.navigateToHomePage.observe(viewLifecycleOwner, Observer { park ->
+            park?.let {
+                this.findNavController().navigate(
+                    ParksListFragmentDirections
+                        .actionParksListFragmentToHomePageFragment())
+                parksListViewModel.onNavigated()
             }
         })
 

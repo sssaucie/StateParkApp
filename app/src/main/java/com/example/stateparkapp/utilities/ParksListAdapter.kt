@@ -55,18 +55,6 @@ class ParksListAdapter(val clickListener: ParksListClickListener) :
             }
         }
     }
-
-//    class ParksListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//        val textView: TextView
-//
-//        init {
-//            // Define click listener for the ViewHolder's View.
-//            textView = view.findViewById((R.id.park_name))
-//        }
-//    }
-
-    // Return the size of dataset (invoked by the layout manager)
-//    override fun getItemCount() = getItem().name.count()
 }
 
 /**

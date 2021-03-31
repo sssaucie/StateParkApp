@@ -14,20 +14,20 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> clickListener.onClick(park)}">
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:id="@+id/menu_rectangle"
-                android:layout_width="176dp"
-                android:layout_height="41dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_none"
                 android:layout_marginTop="@dimen/spacing_none"
                 android:background="@color/clear_color"
                 android:clickable="true"
                 android:contentDescription="@string/button_menu_state_park_name"
-                android:scaleType="fitXY"
                 android:paddingBottom="@dimen/spacing_half"
+                android:scaleType="fitXY"
+                android:onClick="@{() -> clickListener.onClick(park)}"
                 app:layout_constraintStart_toStartOf="@id/menu_rectangle"
                 app:layout_constraintTop_toTopOf="@id/menu_rectangle"
                 app:srcCompat="@drawable/ic_button_menu_rectangle" />
@@ -37,13 +37,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0sp"
                 android:layout_marginTop="@dimen/spacing_none"
-                android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:paddingStart="@dimen/spacing_normal"
                 android:paddingTop="@dimen/spacing_half"
                 android:paddingEnd="@dimen/spacing_half"
                 android:paddingBottom="@dimen/spacing_normal"
                 android:text="@{park.name}"
-                android:textAlignment="center"
+                android:onClick="@{() -> clickListener.onClick(park)}"
                 android:textAppearance="@style/fontStyleLight"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@+id/menu_rectangle"

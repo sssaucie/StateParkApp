@@ -13,9 +13,6 @@
             name="park"
             type="com.example.stateparkapp.model.entity.StateParks" />
 
-        <variable
-            name="shortDescription"
-            type="com.example.stateparkapp.model.entity.StateParks" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +40,7 @@
             android:layout_marginTop="@dimen/spacing_double"
             android:backgroundTint="@color/clear_color"
             android:contentDescription="@string/utah_dnr"
-            android:onClick="@{() -> viewModel.onResetButtonClicked()}"
+            android:onClick="@{() -> viewModel.onDNRLogoClicked()}"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +55,8 @@
             android:text="@{park.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_state_park" />
+            app:layout_constraintTop_toBottomOf="@+id/image_state_park"
+            tools:text="Park name goes here" />
 
         <TextView
             android:id="@+id/detail_state_park"
@@ -66,11 +64,12 @@
             android:layout_width="@dimen/spacing_none"
             android:layout_height="@dimen/spacing_none"
             android:layout_marginBottom="@dimen/spacing_double"
+            android:text="@{park.short_description}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name_state_park"
-            tools:text="@{shortDescription.short_description}" />
+            tools:text="Park detail goes here" />
 
         <Button
             android:id="@+id/backButton"
@@ -86,3 +85,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+<!--    android:text="@{park.component10}"-->
+<!--    android:text="@{park.component2}"-->

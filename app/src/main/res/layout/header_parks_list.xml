@@ -6,23 +6,37 @@
         <variable
             name="park"
             type="com.example.stateparkapp.model.entity.StateParks" />
+
+        <variable
+            name="viewModel"
+            type="com.example.stateparkapp.view_model.ParksListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="headerLayout"/>
 
         <ImageView
             android:id="@+id/listHeaderBackground"
-            android:layout_width="0dp"
-            android:layout_height="90dp"
+            android:layout_width="@dimen/spacing_none"
+            android:layout_height="@dimen/spacing_none"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_double"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/parkListUtahDNRLogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_banner_blank" />
+            app:layout_constraintStart_toEndOf="@+id/parkListUtahDNRLogo"
+            app:srcCompat="@drawable/ic_header_background" />
 
         <ImageView
             android:id="@+id/parkListUtahDNRLogo"
@@ -30,17 +44,21 @@
             android:layout_height="108dp"
             android:layout_marginStart="@dimen/spacing_half"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:onClick="@{() -> viewModel.onUtahDNRLogoClicked()}"
+            android:background="@color/cornsilk"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_image_logo_utah_dnr" />
 
         <TextView
             android:id="@+id/parksListHeaderText"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/spacing_none"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_half"
             android:text="@string/utah_dnr"
-            android:theme="@style/fontStyleLight"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:layout_marginBottom="@dimen/spacing_double"
+            style="@style/fontStyleLight"
             app:layout_constraintBottom_toBottomOf="@+id/listHeaderBackground"
             app:layout_constraintEnd_toEndOf="@+id/listHeaderBackground"
             app:layout_constraintStart_toEndOf="@+id/parkListUtahDNRLogo"

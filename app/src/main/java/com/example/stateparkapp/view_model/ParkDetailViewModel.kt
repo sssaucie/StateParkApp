@@ -29,7 +29,7 @@ class ParkDetailViewModel(val database: StateParksDao, application: Application)
         _navigateToStateParkList.value = true
     }
 
-    fun onResetButtonClicked() {
+    fun onDNRLogoClicked() {
         _navigateToHomePage.value = true
     }
 

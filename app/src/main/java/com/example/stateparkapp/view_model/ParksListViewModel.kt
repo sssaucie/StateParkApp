@@ -3,6 +3,7 @@ package com.example.stateparkapp.view_model
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.stateparkapp.model.dao.StateParksDao
 import com.example.stateparkapp.model.entity.StateParks
@@ -37,8 +38,17 @@ class ParksListViewModel(val database: StateParksDao, application: Application) 
         _navigateToStateParkDetail.value = id
     }
 
-    fun onParkDetailNavigated() {
+    fun onNavigated() {
         _navigateToStateParkDetail.value = null
+        _navigateToHomePage.value = null
+    }
+
+    private val _navigateToHomePage = MutableLiveData<Boolean?>()
+    val navigateToHomePage: LiveData<Boolean?>
+        get() = _navigateToHomePage
+
+    fun onUtahDNRLogoClicked() {
+        _navigateToHomePage.value = true
     }
 
     private suspend fun clear() {
