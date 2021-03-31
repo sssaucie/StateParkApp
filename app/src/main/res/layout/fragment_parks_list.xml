@@ -12,23 +12,28 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/state_parks_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/spacing_double"
             android:layout_marginEnd="@dimen/spacing_double"
             android:layout_marginBottom="@dimen/spacing_normal"
             android:paddingTop="@dimen/spacing_double"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constrainedHeight="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.6"
             app:spanCount="2"
-            tools:listitem="@layout/list_item_state_park_names" />
+            tools:listitem="@layout/list_item_state_park_names">
 
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <include
+            layout="@layout/header_park_list">
+        </include>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

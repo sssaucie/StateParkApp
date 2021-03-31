@@ -1,43 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black"
-    android:textAlignment="center">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/image_state_park"
-        android:layout_width="@dimen/spacing_none"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_parks_screen_description"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/picture_home_screen_red_sand_cave" />
+    <data>
 
-    <TextView
-        android:id="@+id/name_state_park"
-        style="@style/headerStyle2"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:gravity="center"
-        android:text="@string/button_menu_state_park_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_state_park" />
+        <variable
+            name="viewModel"
+            type="com.example.stateparkapp.view_model.ParkDetailViewModel" />
 
-    <TextView
-        android:id="@+id/detail_state_park"
-        style="@style/fontStyleLight"
-        android:layout_width="@dimen/spacing_none"
-        android:layout_height="@dimen/spacing_none"
-        android:layout_marginBottom="@dimen/spacing_double"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_state_park"
-        tools:text="Parks Description Goes Here" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="park"
+            type="com.example.stateparkapp.model.entity.StateParks" />
+
+        <variable
+            name="shortDescription"
+            type="com.example.stateparkapp.model.entity.StateParks" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:textAlignment="center">
+
+        <ImageView
+            android:id="@+id/image_state_park"
+            android:layout_width="@dimen/spacing_none"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image_parks_screen_description"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/picture_home_screen_red_sand_cave" />
+
+        <ImageButton
+            android:id="@+id/utahDNRHomeButton"
+            android:layout_width="86dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:backgroundTint="@color/clear_color"
+            android:contentDescription="@string/utah_dnr"
+            android:onClick="@{() -> viewModel.onResetButtonClicked()}"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_image_logo_utah_dnr" />
+
+        <TextView
+            android:id="@+id/name_state_park"
+            style="@style/headerStyle2"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="@{park.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_state_park" />
+
+        <TextView
+            android:id="@+id/detail_state_park"
+            style="@style/fontStyleLight"
+            android:layout_width="@dimen/spacing_none"
+            android:layout_height="@dimen/spacing_none"
+            android:layout_marginBottom="@dimen/spacing_double"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_state_park"
+            tools:text="@{shortDescription.short_description}" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:padding="@dimen/spacing_none"
+            android:text="@string/button_park_detail_screen_back"
+            android:onClick="@{() -> viewModel.onBackButtonClicked()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

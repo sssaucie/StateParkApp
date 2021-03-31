@@ -11,6 +11,7 @@
     <string name="button_home_screen_resources">Resources</string>
     <string name="button_home_screen_programs">Programs</string>
     <string name="button_home_screen_pay">Pay</string>
+    <string name="button_park_detail_screen_back">Back</string>
 
 <!--    Content Descriptions-->
     <!--    Buttons-->
@@ -23,6 +24,7 @@
     <string name="button_home_screen_facebook_description">Facebook button</string>
     <string name="button_home_screen_twitter_description">Twitter button</string>
     <string name="button_home_screen_youtube_description">YouTube button</string>
+    <string name="button_park_detail_screen_back_description">Go back to park list</string>
 
     <!--    Images-->
     <string name="image_home_screen_description">State park picture</string>

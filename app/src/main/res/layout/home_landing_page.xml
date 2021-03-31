@@ -16,7 +16,7 @@
     <!--    Need the encapsulation layout for the background banner-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/constraintLayoutHomeLandingPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHomeParks"
         app:layout_constraintEnd_toEndOf="@+id/buttonHomeParks"
         app:layout_constraintStart_toStartOf="@+id/buttonHomeParks"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage" />
 
 <!--    <include-->
 <!--        android:id="@+id/buttonHomeParks"-->
@@ -135,7 +135,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonHomeActivities"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
     <ImageView
@@ -159,7 +159,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHomeActivities"
         app:layout_constraintEnd_toEndOf="@+id/buttonHomeActivities"
         app:layout_constraintStart_toStartOf="@+id/buttonHomeActivities"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage" />
 
     <ImageButton
         android:id="@+id/buttonHomeActivities"
@@ -173,7 +173,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonHomeResources"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonHomeParks"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
     <ImageView
@@ -196,7 +196,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHomeResources"
         app:layout_constraintEnd_toEndOf="@+id/buttonHomeResources"
         app:layout_constraintStart_toStartOf="@+id/buttonHomeResources"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage" />
 
     <ImageButton
         android:id="@+id/buttonHomeResources"
@@ -210,7 +210,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonHomePrograms"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonHomeActivities"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
     <ImageView
@@ -233,7 +233,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHomePrograms"
         app:layout_constraintEnd_toEndOf="@+id/buttonHomePrograms"
         app:layout_constraintStart_toStartOf="@+id/buttonHomePrograms"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage" />
 
     <ImageButton
         android:id="@+id/buttonHomePrograms"
@@ -247,7 +247,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonHomePay"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonHomeResources"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
     <ImageView
@@ -270,7 +270,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHomePay"
         app:layout_constraintEnd_toEndOf="@+id/buttonHomePay"
         app:layout_constraintStart_toStartOf="@+id/buttonHomePay"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage" />
 
     <ImageButton
         android:id="@+id/buttonHomePay"
@@ -285,7 +285,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonHomePrograms"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHomeLandingPage"
         app:srcCompat="@drawable/selector_home_screen_navigation_tab" />
 
     <ImageView

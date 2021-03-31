@@ -40,11 +40,11 @@ class ParksListAdapter(val clickListener: ParksListClickListener) :
 
     class ParksListViewHolder private constructor(val binding: ListItemStateParkNamesBinding)
         : RecyclerView.ViewHolder(binding.root) {
-            fun bind(clickListener: ParksListClickListener, item: StateParks) {
-                binding.park = item
-                binding.clickListener = clickListener
-                binding.executePendingBindings()
-            }
+        fun bind(clickListener: ParksListClickListener, item: StateParks) {
+            binding.park = item
+            binding.clickListener = clickListener
+            binding.executePendingBindings()
+        }
 
         companion object {
             fun from(parent: ViewGroup): ParksListViewHolder {
@@ -54,7 +54,7 @@ class ParksListAdapter(val clickListener: ParksListClickListener) :
                 return ParksListViewHolder(binding)
             }
         }
-        }
+    }
 
 //    class ParksListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        val textView: TextView

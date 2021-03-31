@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.stateparkapp.R
+import com.example.stateparkapp.databinding.FragmentParkDetailBinding
 import com.example.stateparkapp.model.database.StateParksDatabase
 import com.example.stateparkapp.view_model.ParkDetailViewModel
 import com.example.stateparkapp.view_model.ParkDetailViewModelFactory
@@ -46,6 +47,14 @@ class ParkDetailFragment : Fragment() {
             if (it == true) {
                 this.findNavController().navigate(
                     ParkDetailFragmentDirections.actionParkDetailFragmentToHomePageFragment())
+                parkDetailViewModel.doneNavigating()
+            }
+        })
+
+        parkDetailViewModel.navigateToStateParkList.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                this.findNavController().navigate(
+                    ParkDetailFragmentDirections.actionParkDetailFragmentToParksListFragment())
                 parkDetailViewModel.doneNavigating()
             }
         })
