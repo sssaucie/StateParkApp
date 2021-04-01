@@ -27,12 +27,10 @@
             app:destination="@id/park_detail_fragment"/>
 
         <action
-            android:id="@+id/actionParksListFragment_to_homePageFragment"
+            android:id="@+id/action_ParksListFragment_to_homePageFragment"
             app:destination="@id/home_page_fragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment
