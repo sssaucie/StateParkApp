@@ -1,15 +1,9 @@
 package com.example.stateparkapp.view_model
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stateparkapp.model.entity.StateParks
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 
 class ParkDetailViewModel(park: StateParks) : ViewModel() {
 

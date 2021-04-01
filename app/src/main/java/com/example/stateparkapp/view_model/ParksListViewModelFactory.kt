@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.stateparkapp.model.dao.StateParksDao
-import java.lang.IllegalArgumentException
 
 /**
  * This is pretty much boiler plate code for a ViewModel Factory.

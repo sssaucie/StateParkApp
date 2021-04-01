@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.stateparkapp.R
 import com.example.stateparkapp.databinding.FragmentParkDetailBinding
-import com.example.stateparkapp.model.database.StateParksDatabase
 import com.example.stateparkapp.model.entity.StateParks
 import com.example.stateparkapp.view_model.ParkDetailViewModel
 import com.example.stateparkapp.view_model.ParkDetailViewModelFactory
