@@ -20,7 +20,7 @@ buildscript {
         hiltVersion = '2.33-beta'
         hiltViewModelVersion = '1.0.0-beta01'
         junitVersion = '4.12'
-        kotlinVersion = '1.4.31'
+        kotlinVersion = '1.4.32'
         ktlintVersion = '0.38.1'
         ktxVersion = '1.0.2'
         lifecycleVersion = '2.2.0'
