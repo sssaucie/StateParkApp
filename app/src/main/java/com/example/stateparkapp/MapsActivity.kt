@@ -1,6 +1,6 @@
 package com.example.stateparkapp
 
-import android.content.pm.PackageManager
+import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.content.res.Resources
 import android.os.Bundle
@@ -155,17 +155,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun isPermissionGranted() : Boolean {
         return ContextCompat.checkSelfPermission(
             this,
-            android.Manifest.permission.ACCESS_FINE_LOCATION) === PackageManager(PERMISSION_GRANTED)
+            ACCESS_FINE_LOCATION) === PERMISSION_GRANTED
     }
 
     private fun enableMyLocation() {
         if (isPermissionGranted()) {
-            map.isMyLocationEnabled(true)
+            map.isMyLocationEnabled = true
         }
         else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf<String>(ACCESS_FINE_LOCATION),
                 REQUEST_LOCATION_PERMISSION
             )
         }
