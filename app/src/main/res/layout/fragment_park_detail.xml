@@ -277,7 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:text="@{viewModel.selectedPark.year_established}"
+            android:text="@{Integer.toString(viewModel.selectedPark.year_established)}"
             app:layout_constraintStart_toEndOf="@+id/barrier_stats"
             app:layout_constraintTop_toBottomOf="@+id/county_detail"
             tools:text="1800" />
