@@ -17,6 +17,48 @@
         android:background="@color/black"
         android:textAlignment="center">
 
+        <ImageButton
+            android:id="@+id/button_youTube_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/spacing_half"
+            android:layout_marginBottom="@dimen/spacing_double"
+            android:backgroundTint="@color/clear_color"
+            android:contentDescription="@string/button_home_screen_youtube_description"
+            android:padding="@dimen/spacing_none"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_twitter_2"
+            app:srcCompat="@drawable/ic_logo_youtube" />
+
+        <ImageButton
+            android:id="@+id/button_twitter_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/spacing_half"
+            android:layout_marginBottom="@dimen/spacing_double"
+            android:backgroundTint="@color/clear_color"
+            android:contentDescription="@string/button_home_screen_twitter_description"
+            android:padding="@dimen/spacing_none"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_facebook_2"
+            app:srcCompat="@drawable/ic_logo_twitter" />
+
+        <ImageButton
+            android:id="@+id/button_facebook_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginBottom="@dimen/spacing_double"
+            android:backgroundTint="@color/clear_color"
+            android:contentDescription="@string/button_home_screen_facebook_description"
+            android:padding="@dimen/spacing_none"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_logo_facebook" />
+
         <ImageView
             android:id="@+id/image_state_park"
             android:layout_width="@dimen/spacing_none"
@@ -29,7 +71,7 @@
             app:srcCompat="@drawable/picture_home_screen_red_sand_cave" />
 
         <ImageButton
-            android:id="@+id/utahDNRHomeButton"
+            android:id="@+id/utah_DNR_home_button"
             android:layout_width="86dp"
             android:layout_height="81dp"
             android:layout_marginStart="@dimen/spacing_normal"
@@ -41,6 +83,141 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_image_logo_utah_dnr" />
+
+        <ImageButton
+            android:id="@+id/reserve_button_park_detail"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/spacing_double"
+            android:layout_marginEnd="@dimen/spacing_double"
+            android:background="@color/clear_color"
+            android:clickable="true"
+            android:contentDescription="@string/button_reserve_description"
+            android:scaleType="fitXY"
+            android:scaleX="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_button_reserve_blank" />
+
+        <TextView
+            android:id="@+id/reserve_text_park_detail"
+            style="@style/reserveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:text="@string/button_reserve"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/reserve_button_park_detail"
+            app:layout_constraintEnd_toEndOf="@+id/reserve_button_park_detail"
+            app:layout_constraintStart_toStartOf="@+id/reserve_button_park_detail"
+            app:layout_constraintTop_toTopOf="@+id/reserve_button_park_detail" />
+
+        <ImageView
+            android:id="@+id/park_detail_background_banner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:tintMode="src_in"
+            app:layout_constraintBottom_toBottomOf="@+id/name_state_park"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_state_park"
+            app:srcCompat="@drawable/ic_header_background"
+            app:tint="@color/dark_olive_green" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:onClick="@{() -> viewModel.onBackButtonClicked()}"
+            android:padding="@dimen/spacing_none"
+            android:text="@string/button_park_detail_screen_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+<!--        Strings-->
+
+        <TextView
+            android:id="@+id/string_known_for"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/known_for"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/name_state_park" />
+
+        <TextView
+            android:id="@+id/string_county"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/county"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_known_for" />
+
+        <TextView
+            android:id="@+id/string_year_established"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/year_established"
+            app:layout_constraintEnd_toStartOf="@+id/barrier_stats"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_county" />
+
+        <TextView
+            android:id="@+id/string_elevation"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/elevation"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_year_established" />
+
+        <TextView
+            android:id="@+id/string_acreage"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/acreage"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_elevation" />
+
+        <TextView
+            android:id="@+id/string_yearly_visitors"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/yearly_visitors"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_acreage" />
+
+        <TextView
+            android:id="@+id/string_park_rating"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/park_rating"
+            app:layout_constraintStart_toStartOf="@id/barrier_strings_categories"
+            app:layout_constraintTop_toBottomOf="@+id/string_yearly_visitors" />
+
+<!--        TextView Content-->
 
         <TextView
             android:id="@+id/name_state_park"
@@ -60,27 +237,118 @@
             android:layout_width="@dimen/spacing_none"
             android:layout_height="@dimen/spacing_none"
             android:layout_marginBottom="@dimen/spacing_double"
+            android:padding="@dimen/spacing_double"
             android:text="@{viewModel.selectedPark.short_description}"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_state_park"
+            app:layout_constraintTop_toBottomOf="@+id/string_park_rating"
             tools:text="Park detail goes here" />
 
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="55dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            android:layout_marginBottom="@dimen/spacing_normal"
-            android:padding="@dimen/spacing_none"
-            android:text="@string/button_park_detail_screen_back"
-            android:onClick="@{() -> viewModel.onBackButtonClicked()}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/interest_highlight"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.type}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/name_state_park"
+            tools:text="Interest/activity" />
+
+        <TextView
+            android:id="@+id/county_detail"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.location}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/interest_highlight"
+            tools:text="County" />
+
+        <TextView
+            android:id="@+id/year_established"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.year_established}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/county_detail"
+            tools:text="1800" />
+
+        <TextView
+            android:id="@+id/elevation"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.elevation}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/year_established"
+            tools:text="400,000 ft." />
+
+        <TextView
+            android:id="@+id/acreage"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.size}"
+            app:layout_constraintStart_toEndOf="@id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/elevation"
+            tools:text="450,000,000" />
+
+        <TextView
+            android:id="@+id/yearly_visitors"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.yearly_visitors}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/acreage"
+            tools:text="470,000" />
+
+        <TextView
+            android:id="@+id/park_rating"
+            style="@style/fontStyleLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@{viewModel.selectedPark.rating}"
+            app:layout_constraintStart_toEndOf="@+id/barrier_stats"
+            app:layout_constraintTop_toBottomOf="@+id/yearly_visitors"
+            tools:text="4.75 stars / 5 stars" />
+
+<!--        Barriers for TextView park statistics content-->
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="string_year_established,interest_highlight,elevation,year_established,yearly_visitors,county_detail,acreage,park_rating"
+            tools:layout_editor_absoluteX="155dp"
+            tools:layout_editor_absoluteY="470dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_strings_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="name_state_park,string_known_for,string_elevation,string_year_established,string_yearly_visitors,string_county,string_acreage,string_park_rating"
+            app:layout_constraintEnd_toStartOf="@id/name_state_park"
+            tools:layout_editor_absoluteY="406dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-<!--    android:text="@{park.component10}"-->
-<!--    android:text="@{park.component2}"-->

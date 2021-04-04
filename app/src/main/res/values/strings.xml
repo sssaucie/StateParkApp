@@ -3,6 +3,15 @@
     <string name="app_name">StateParkApp</string>
     <string name="utah_dnr">UTAH DEPARTMENT OF NATURAL RESOURCES - STATE PARKS</string>
 
+<!--    Detail screen categories-->
+    <string name="known_for">Known for:</string>
+    <string name="acreage">Acreage:</string>
+    <string name="yearly_visitors">Yearly visitors:</string>
+    <string name="elevation">Elevation:</string>
+    <string name="year_established">Year established:</string>
+    <string name="park_rating">Park rating:</string>
+    <string name="county">County:</string>
+
 <!--    Buttons-->
     <string name="button_reserve">RESERVE</string>
     <string name="button_menu_state_park_name">State Park Name</string>
