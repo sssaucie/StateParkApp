@@ -24,8 +24,9 @@ class ParksListViewModel(val database: StateParksDao, application: Application) 
      * By default, all coroutines started in uiScope will launch in [Dispatchers.Main] which is
      * the main thread on Android.  This is a sensible default because most coroutines started
      * by a [ViewModel] update the UI after performing some processing.
+     *
+     * private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
      */
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     val parks = database.getAllParks()
 

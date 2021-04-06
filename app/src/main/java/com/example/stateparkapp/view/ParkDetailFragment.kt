@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,7 +17,10 @@ import com.example.stateparkapp.view_model.ParkDetailViewModel
 import com.example.stateparkapp.view_model.ParkDetailViewModelFactory
 
 class ParkDetailFragment : Fragment() {
+
     private lateinit var selectedPark : StateParks
+
+    private lateinit var scrollDetail : ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +40,8 @@ class ParkDetailFragment : Fragment() {
                 this, viewModelFactory).get(ParkDetailViewModel::class.java)
 
         binding.viewModel = parkDetailViewModel
+
+        binding.detailScroll.viewModel = parkDetailViewModel
 
         binding.setLifecycleOwner(this)
 

@@ -19,9 +19,10 @@ import com.example.stateparkapp.view_model.ParksListViewModel
 import com.example.stateparkapp.view_model.ParksListViewModelFactory
 
 class ParksListFragment : Fragment() {
-    private val viewModel : ParksListViewModel by lazy {
-        ViewModelProvider(this).get(ParksListViewModel::class.java)
-    }
+
+//    private val viewModel : ParksListViewModel by lazy {
+//        ViewModelProvider(this).get(ParksListViewModel::class.java)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
