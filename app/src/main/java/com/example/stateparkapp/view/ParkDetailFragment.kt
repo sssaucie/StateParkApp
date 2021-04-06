@@ -59,6 +59,14 @@ class ParkDetailFragment : Fragment() {
             }
         })
 
+        parkDetailViewModel.navigateToMaps.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                this.findNavController().navigate(
+                    ParkDetailFragmentDirections.actionParkDetailFragmentToMapsFragment())
+                parkDetailViewModel.doneNavigating()
+            }
+        })
+
         return binding.root
     }
 }

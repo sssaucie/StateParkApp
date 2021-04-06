@@ -20,11 +20,16 @@ class ParkDetailViewModel(park: StateParks) : ViewModel() {
 
     private val _navigateToStateParkList = MutableLiveData<Boolean?>()
 
+    private val _navigateToMaps = MutableLiveData<Boolean?>()
+
     val navigateToHomePage: LiveData<Boolean?>
         get() = _navigateToHomePage
 
     val navigateToStateParkList: LiveData<Boolean?>
         get() = _navigateToStateParkList
+
+    val navigateToMaps: LiveData<Boolean?>
+        get() = _navigateToMaps
 
     fun onBackButtonClicked() {
         _navigateToStateParkList.value = true
@@ -34,8 +39,13 @@ class ParkDetailViewModel(park: StateParks) : ViewModel() {
         _navigateToHomePage.value = true
     }
 
+    fun onMapsClicked() {
+        _navigateToMaps.value = true
+    }
+
     fun doneNavigating() {
         _navigateToHomePage.value = null
         _navigateToStateParkList.value = null
+        _navigateToMaps.value = null
     }
 }

@@ -53,6 +53,23 @@
         <argument
             android:name="selectedPark"
             app:argType="com.example.stateparkapp.model.entity.StateParks" />
+
+        <action
+            android:id="@+id/action_parkDetailFragment_to_mapsFragment"
+            app:destination="@+id/fragment_maps"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left">
+            <argument
+                android:name="selectedPark"
+                app:argType="com.example.stateparkapp.model.entity.StateParks" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_maps"
+        android:name="com.example.stateparkapp.MapsFragment"
+        android:label="MapsFragment"
+        tools:layout="@layout/fragment_maps">
     </fragment>
 
 </navigation>

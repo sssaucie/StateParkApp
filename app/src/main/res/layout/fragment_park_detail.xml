@@ -105,6 +105,7 @@
             android:layout_height="53dp"
             android:layout_marginEnd="@dimen/spacing_double"
             android:layout_marginBottom="@dimen/spacing_normal"
+            android:onClick="@{() -> viewModel.onMapsClicked()}"
             app:layout_constraintBottom_toBottomOf="@+id/image_state_park"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_image_location_pin" />
