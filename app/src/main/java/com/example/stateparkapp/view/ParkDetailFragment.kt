@@ -20,8 +20,6 @@ class ParkDetailFragment : Fragment() {
 
     private lateinit var selectedPark : StateParks
 
-    private lateinit var scrollDetail : ConstraintLayout
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

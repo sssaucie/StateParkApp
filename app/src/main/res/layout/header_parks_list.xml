@@ -47,10 +47,11 @@
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@color/cornsilk"
             android:clickable="true"
+            android:onClick="@{() -> viewModel.onUtahDNRLogoClicked()}"
             android:contentDescription="@string/utah_dnr"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_image_logo_utah_dnr" />
+            app:srcCompat="@drawable/ic_logo_utah_dnr" />
 
         <TextView
             android:id="@+id/parksListHeaderText"

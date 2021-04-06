@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -44,6 +45,8 @@ class ParksListFragment : Fragment() {
                 this, viewModelFactory).get(ParksListViewModel::class.java)
 
         binding.viewModel = parksListViewModel
+
+        binding.customHeader.viewModel = parksListViewModel
 
         binding.setLifecycleOwner(this)
 
