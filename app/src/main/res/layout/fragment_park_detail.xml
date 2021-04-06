@@ -99,6 +99,27 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_button_reserve_blank" />
 
+        <ImageView
+            android:id="@+id/map_pin"
+            android:layout_width="52dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="@dimen/spacing_double"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/image_state_park"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_image_location_pin" />
+
+        <TextView
+            android:id="@+id/map_text"
+            style="@style/mapsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_maps_detail_screen_description"
+            android:text="@string/button_maps_detail_screen"
+            app:layout_constraintBottom_toTopOf="@+id/map_pin"
+            app:layout_constraintEnd_toEndOf="@+id/map_pin"
+            app:layout_constraintStart_toStartOf="@+id/map_pin" />
+
         <TextView
             android:id="@+id/reserve_text_park_detail"
             style="@style/reserveButton"
@@ -170,5 +191,7 @@
                 android:layout_marginBottom="@dimen/spacing_double">
             </include>
         </ScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
