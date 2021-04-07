@@ -10,6 +10,7 @@ import com.example.stateparkapp.model.entity.Dummy
 import com.example.stateparkapp.utilities.FIRST_RUN_KEY
 import com.example.stateparkapp.utilities.SHARED_PREFS_KEY
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -63,4 +64,6 @@ class MainActivity : AppCompatActivity() {
 
         db.dummyDao().insert(dummy)
     }
+
+
 }
