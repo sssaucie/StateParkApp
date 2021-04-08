@@ -1,13 +1,13 @@
 package com.example.stateparkapp.view
 
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.stateparkapp.R
 import com.example.stateparkapp.model.entity.StateParks
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -52,10 +52,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(p0: GoogleMap?) {
+        val zoomLevel = 6.5f
         map.addMarker(
             MarkerOptions()
                 .position(LatLng(currentPark.latitude, currentPark.longitude))
                 .title("Marker")
         )
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(currentPark.latitude, currentPark.longitude), zoomLevel))
     }
 }

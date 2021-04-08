@@ -9,9 +9,10 @@ https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend
 You can also add your credentials to an existing key, using these values:
 
 Package name:
-com.example.wander
+com.example.stateparkapp
 
 SHA-1 certificate fingerprint:
+39:E2:FE:47:D3:76:53:0E:85:D0:12:F8:FE:7E:A9:17:F9:21:D8:4B
 15:06:27:54:17:DF:10:3A:EA:18:2D:4F:A1:81:E6:13:FC:C7:D8:F2
 
 Alternatively, follow the directions here:
