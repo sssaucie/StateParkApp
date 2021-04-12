@@ -100,12 +100,25 @@
             app:srcCompat="@drawable/ic_button_reserve_blank" />
 
         <ImageView
+            android:id="@+id/background_map_circle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:alpha="0.7"
+            android:contentDescription="@string/button_maps_detail_screen_description"
+            app:layout_constraintBottom_toBottomOf="@+id/map_pin"
+            app:layout_constraintEnd_toEndOf="@+id/map_pin"
+            app:layout_constraintStart_toStartOf="@+id/map_pin"
+            app:srcCompat="@drawable/ic_button_blank_fawn" />
+
+        <ImageView
             android:id="@+id/map_pin"
             android:layout_width="52dp"
             android:layout_height="53dp"
             android:layout_marginEnd="@dimen/spacing_double"
             android:layout_marginBottom="@dimen/spacing_normal"
+            android:contentDescription="@string/button_maps_detail_screen_description"
             android:onClick="@{() -> viewModel.onMapsClicked()}"
+            android:paddingBottom="@dimen/spacing_half"
             app:layout_constraintBottom_toBottomOf="@+id/image_state_park"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_image_location_pin" />
@@ -138,6 +151,7 @@
             android:id="@+id/park_detail_background_banner"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/button_maps_detail_screen_description"
             android:scaleType="fitXY"
             android:tintMode="src_in"
             app:layout_constraintBottom_toBottomOf="@+id/name_state_park"

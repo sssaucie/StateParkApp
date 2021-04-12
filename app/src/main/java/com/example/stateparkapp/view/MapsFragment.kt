@@ -56,7 +56,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.addMarker(
             MarkerOptions()
                 .position(LatLng(currentPark.latitude, currentPark.longitude))
-                .title("Marker")
+                .title(currentPark.name)
         )
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(currentPark.latitude, currentPark.longitude), zoomLevel))
     }
