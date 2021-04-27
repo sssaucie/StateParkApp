@@ -9,3 +9,5 @@ const val STATE_PARKS_DATA_FILENAME = "state_parks.json"
 
 const val SHARED_PREFS_KEY = "shared_prefs"
 const val FIRST_RUN_KEY = "first_run"
+
+const val TIME_OUT : Long = 3000
