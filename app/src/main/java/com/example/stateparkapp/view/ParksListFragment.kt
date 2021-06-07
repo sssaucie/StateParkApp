@@ -91,7 +91,7 @@ class ParksListFragment : Fragment() {
          * Add the view adapter and observe for new data
          */
 
-        parksListViewModel.parks.observe(viewLifecycleOwner, Observer {
+        parksListViewModel.parks.observe(viewLifecycleOwner, {
             it?.let {
                 adapter.submitList(it)
             }

@@ -11,10 +11,6 @@ import kotlinx.coroutines.Job
 
 class HomePageViewModel(val database: StateParksDao, application: Application) : AndroidViewModel(application) {
 
-    private var viewModelJob = Job()
-
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
     private val _navigateToStateParkList = MutableLiveData<Boolean?>()
 
     /**
