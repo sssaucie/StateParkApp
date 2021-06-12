@@ -16,22 +16,22 @@ buildscript {
         fragmentVersion = '1.1.0-alpha09'
         glideVersion = '4.10.0'
         gradleVersion = '4.2.0-beta04'
-        gsonVersion = '2.8.6'
+        gsonVersion = '2.8.7'
         hiltVersion = '2.33-beta'
         hiltViewModelVersion = '1.0.0-beta01'
         junitVersion = '4.12'
-        kotlinVersion = '1.4.32'
+        kotlinVersion = '1.5.10'
         ktlintVersion = '0.38.1'
         ktxVersion = '1.0.2'
         lifecycleVersion = '2.2.0'
         materialVersion = '1.2.0'
-        moshiVersion = "1.11.0"
-        navigationVersion = '2.3.4'
+        moshiVersion = '1.12.0'
+        navigationVersion = '2.3.5'
         okhttpLoggingVersion = '4.7.2'
         pagingVersion = '3.0.0-alpha02'
         recyclerViewVersion = '1.2.0-alpha04'
         retrofitVersion = '2.9.0'
-        roomVersion = '2.2.5'
+        roomVersion = '2.9.0'
         runnerVersion = '1.0.1'
         truthVersion = '0.42'
         testExtJunit = '1.1.0'
@@ -42,7 +42,7 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -56,7 +56,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
