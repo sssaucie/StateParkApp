@@ -47,7 +47,7 @@ class ParksListFragment : Fragment() {
 
         binding.customHeader.viewModel = parksListViewModel
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         parksListViewModel.navigateToStateParkDetail.observe(viewLifecycleOwner, Observer { park ->
             park?.let {
